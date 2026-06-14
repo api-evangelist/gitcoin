@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/grant.json",
+  "title": "Gitcoin Grant",
+  "description": "Schema for a Gitcoin grant representing a public goods funding project",
+  "type": "object",
+  "properties": {
+    "active": {
+      "type": "boolean",
+      "description": "Whether or not the Grant is active"
+    },
+    "title": {
+      "type": "string",
+      "description": "Title of the Grant"
+    },
+    "slug": {
+      "type": "string",
+      "description": "Slug for the Grant populated from title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the Grant"
+    },
+    "reference_url": {
+      "type": ["string", "null"],
+      "format": "uri",
+      "description": "Associated reference URL of the Grant"
+    },
+    "logo": {
+      "type": ["string", "null"],
+      "format": "uri",
+      "description": "URL of the Grant logo image"
+    },
+    "admin_address": {
+      "type": "string",
+      "pattern": "^0x[a-fA-F0-9]{40}$",
+      "description": "Wallet address of the Grant Admin where subscription funds will be sent"
+    },
+    "amount_received": {
+      "type": "number",
+      "format": "float",
+      "description": "Total amount of contributions received by the Grant in USDT/DAI"
+    },
+    "token_address": {
+      "type": "string",
+      "pattern": "^0x[a-fA-F0-9]{40}$",
+      "description": "Address of the token to be used with the Grant"
+    },
+    "token_symbol": {
+      "type": "string",
+      "description": "Type of token to be used with the Grant",
+      "examples": ["ETH", "DAI", "USDT"]
+    },
+    "contract_address": {
+      "type": "string",
+      "pattern": "^0x[a-fA-F0-9]{40}$",
+      "description": "Contract address of the Grant"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Miscellaneous metadata about the Grant"
+    },
+    "network": {
+      "type": "string",
+      "description": "Network in which the Grant contract resides",
+      "examples": ["mainnet", "rinkeby", "polygon"]
+    },
+    "required_gas_price": {
+      "type": ["number", "null"],
+      "format": "float",
+      "description": "Required gas price for the Grant"
+    },
+    "admin_profile": {
+      "$ref": "#/$defs/Profile",
+      "description": "Grant Admin's profile"
+    },
+    "team_members": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Profile"
+      },
+      "description": "Array of team members contributing to this Grant"
+    }
+  },
+  "required": ["title", "active"],
+  "$defs": {
+    "Profile": {
+      "type": "object",
+      "description": "Gitcoin user profile",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Profile ID"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to the Gitcoin profile"
+        },
+        "handle": {
+          "type": "string",
+          "description": "GitHub handle/username associated with the Profile"
+        },
+        "keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of keywords associated with the Profile"
+        },
+        "position": {
+          "type": "integer",
+          "description": "Position of the Profile in the Weekly Earners leaderboard"
+        },
+        "avatar_url": {
+          "type": ["string", "null"],
+          "format": "uri",
+          "description": "URL to the Gitcoin Avatar of the Profile"
+        },
+        "github_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to the GitHub profile"
+        },
+        "total_earned": {
+          "type": "number",
+          "format": "float",
+          "description": "Sum of ETH collected by the profile"
+        },
+        "organizations": {
+          "type": "object",
+          "description": "Dictionary containing profiles that this user works with"
+        }
+      }
+    }
+  }
+}

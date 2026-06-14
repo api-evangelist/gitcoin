@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/bounty.json",
+  "title": "Gitcoin Bounty",
+  "description": "Schema for a Gitcoin bounty representing a funding opportunity for open source work",
+  "type": "object",
+  "properties": {
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL for this specific bounty",
+      "example": "https://gitcoin.co/api/v0.1/bounties/9/"
+    },
+    "created_on": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Creation timestamp in ISO 8601 format"
+    },
+    "modified_on": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last modified timestamp in ISO 8601 format"
+    },
+    "title": {
+      "type": "string",
+      "description": "Title of the bounty"
+    },
+    "web3_created": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Creation timestamp for the on-chain transaction holding this bounty"
+    },
+    "value_in_token": {
+      "type": "string",
+      "description": "Amount of tokens rewarded for the bounty"
+    },
+    "token_name": {
+      "type": "string",
+      "description": "Type of token reward",
+      "examples": ["ETH", "GIT", "DAI"]
+    },
+    "token_address": {
+      "type": "string",
+      "pattern": "^0x[a-fA-F0-9]{40}$",
+      "description": "Ethereum address where the tokens are located"
+    },
+    "bounty_type": {
+      "type": "string",
+      "enum": ["Bug", "Feature", "Security", "Documentation", "Design", ""],
+      "description": "Type of bounty"
+    },
+    "project_length": {
+      "type": "string",
+      "enum": ["Hours", "Days", "Weeks", "Months", ""],
+      "description": "Relative length of project"
+    },
+    "experience_level": {
+      "type": "string",
+      "description": "Recommended experience level"
+    },
+    "github_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL on GitHub where the bounty description can be found"
+    },
+    "github_org_name": {
+      "type": "string",
+      "description": "GitHub organization name"
+    },
+    "github_repo_name": {
+      "type": "string",
+      "description": "GitHub repository name"
+    },
+    "github_issue_number": {
+      "type": "string",
+      "description": "GitHub issue number"
+    },
+    "keywords": {
+      "type": "string",
+      "description": "Comma-delimited list of keywords"
+    },
+    "current_bounty": {
+      "type": "boolean",
+      "description": "Whether this bounty is the most current revision"
+    },
+    "expires_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date before which the bounty must be completed"
+    },
+    "value_in_eth": {
+      "type": ["number", "null"],
+      "description": "Value of the bounty in Ethereum (wei)"
+    },
+    "value_in_usdt": {
+      "type": ["number", "null"],
+      "format": "float",
+      "description": "Approximation of value in USD at bounty web3_created timestamp"
+    },
+    "value_in_usdt_now": {
+      "type": ["number", "null"],
+      "format": "float",
+      "description": "Approximation of current value in USD"
+    },
+    "now": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Current date_time on the server"
+    },
+    "action_urls": {
+      "type": "object",
+      "description": "A dictionary of URLs where a user can take action against the bounty"
+    },
+    "paid": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of users who have been paid from the bounty"
+    },
+    "is_open": {
+      "type": "boolean",
+      "description": "True if the bounty has not been completed"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["open", "started", "submitted", "done", "expired"],
+      "description": "Current status of the bounty"
+    },
+    "bounty_owner_address": {
+      "type": "string",
+      "pattern": "^0x[a-fA-F0-9]{40}$",
+      "description": "Ethereum address of the person who owns the bounty"
+    },
+    "bounty_owner_email": {
+      "type": ["string", "null"],
+      "format": "email",
+      "description": "Email of the bounty owner"
+    },
+    "bounty_owner_github_username": {
+      "type": ["string", "null"],
+      "description": "GitHub username of the bounty owner"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Miscellaneous metadata about the bounty and the creator"
+    },
+    "fulfiller_address": {
+      "type": ["string", "null"],
+      "pattern": "^0x[a-fA-F0-9]{40}$",
+      "description": "Ethereum address of the person who fulfilled the bounty"
+    },
+    "fulfiller_email": {
+      "type": ["string", "null"],
+      "format": "email",
+      "description": "Email of the person fulfilling the bounty"
+    },
+    "fulfiller_github_username": {
+      "type": ["string", "null"],
+      "description": "GitHub username of the fulfiller"
+    },
+    "fulfiller_metadata": {
+      "type": "object",
+      "description": "githubUsername and notificationEmail for the fulfiller",
+      "properties": {
+        "githubUsername": {
+          "type": "string"
+        },
+        "notificationEmail": {
+          "type": "string",
+          "format": "email"
+        }
+      }
+    }
+  },
+  "required": ["url", "title", "status", "is_open"]
+}

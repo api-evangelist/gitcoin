@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/passport-stamp.json",
+  "title": "Gitcoin Passport Stamp",
+  "description": "Schema for a Gitcoin Passport verifiable credential stamp used for identity verification and Sybil resistance",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Stamp schema version"
+    },
+    "credential": {
+      "type": "object",
+      "description": "The verifiable credential associated with the stamp",
+      "properties": {
+        "@context": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "description": "JSON-LD context array"
+        },
+        "type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Credential type array"
+        },
+        "issuer": {
+          "type": "string",
+          "description": "DID of the credential issuer"
+        },
+        "issuanceDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date the credential was issued"
+        },
+        "expirationDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date the credential expires"
+        },
+        "credentialSubject": {
+          "type": "object",
+          "description": "The subject of the verifiable credential",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "DID of the credential subject"
+            },
+            "hash": {
+              "type": "string",
+              "description": "Hash of the credential for uniqueness verification"
+            },
+            "@context": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "provider": {
+              "type": "string",
+              "description": "The stamp provider name (e.g., Github, Discord, Twitter)"
+            }
+          }
+        },
+        "proof": {
+          "type": "object",
+          "description": "Cryptographic proof for the credential"
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Metadata about the stamp",
+      "properties": {
+        "group": {
+          "type": "string",
+          "description": "Group/category of the stamp"
+        },
+        "platform": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Platform identifier"
+            },
+            "icon": {
+              "type": "string",
+              "description": "Icon identifier for the platform"
+            },
+            "name": {
+              "type": "string",
+              "description": "Platform display name"
+            },
+            "description": {
+              "type": "string",
+              "description": "Platform description"
+            },
+            "connectMessage": {
+              "type": "string",
+              "description": "Message to display when connecting"
+            }
+          }
+        },
+        "name": {
+          "type": "string",
+          "description": "Stamp name"
+        },
+        "description": {
+          "type": "string",
+          "description": "Stamp description"
+        },
+        "hash": {
+          "type": "string",
+          "description": "Hash of the stamp"
+        }
+      }
+    }
+  },
+  "required": ["version", "credential"]
+}

@@ -1,0 +1,20 @@
+{
+  "address": "0x636f3093258412b96c43bef3663f1b853253ec59",
+  "score": "27.5",
+  "status": "DONE",
+  "last_score_timestamp": "2024-01-15T10:30:00.000000Z",
+  "expiration_date": "2025-01-15T10:30:00.000000Z",
+  "error": null,
+  "stamp_scores": {
+    "Github": "2.0",
+    "Discord": "0.5",
+    "Twitter": "0.5",
+    "Ens": "2.0",
+    "GitcoinGrantsStack": "6.0",
+    "BrightID": "0.5",
+    "Coinbase": "1.5",
+    "Google": "0.5",
+    "FacebookProfilePicture": "1.0",
+    "GitcoinContributorStatistics": "2.0"
+  }
+}

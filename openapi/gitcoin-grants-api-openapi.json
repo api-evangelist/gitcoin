@@ -1,0 +1,362 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Gitcoin Grants API",
+    "version": "1.0.0",
+    "description": "API for querying Gitcoin grants data including grant listings, contributors by round, and addresses that have funded grants. Supports filtering by title, admin address, description, keyword, grant type, and primary key. Also exposes contributor export endpoints for quadratic funding rounds.",
+    "termsOfService": "https://gitcoin.co/terms",
+    "contact": {
+      "name": "Gitcoin Support",
+      "url": "https://support.gitcoin.co/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://gitcoin.co",
+      "description": "Gitcoin main server"
+    }
+  ],
+  "paths": {
+    "/grants/grants.json": {
+      "get": {
+        "operationId": "getAllGrants",
+        "summary": "Get All Grants",
+        "description": "Returns a full list of grants on the platform along with the addresses you can contribute to them at.",
+        "tags": ["Grants"],
+        "responses": {
+          "200": {
+            "description": "A list of all grants",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GrantExport"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/grants/v1/api/export_addresses/all.json": {
+      "get": {
+        "operationId": "getAllContributorAddresses",
+        "summary": "Get All Contributor Addresses",
+        "description": "Returns a list of all Ethereum addresses that have ever funded a Gitcoin Grant.",
+        "tags": ["Contributors"],
+        "responses": {
+          "200": {
+            "description": "A list of all contributor Ethereum addresses",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EthereumAddress"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/grants/v1/api/export_addresses/{roundId}.json": {
+      "get": {
+        "operationId": "getContributorsByRound",
+        "summary": "Get Contributors by Round",
+        "description": "Returns a list of contributor Ethereum addresses for a specific Gitcoin Grants Round (rounds 1-10 supported).",
+        "tags": ["Contributors", "Rounds"],
+        "parameters": [
+          {
+            "name": "roundId",
+            "in": "path",
+            "required": true,
+            "description": "The round identifier in format 'roundX' where X is the round number (1-10)",
+            "schema": {
+              "type": "string",
+              "pattern": "^round\\d+$",
+              "example": "round7"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of contributor addresses for the specified round",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EthereumAddress"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/grants/v1/api/export_addresses/{grantId}.json": {
+      "get": {
+        "operationId": "getContributorsByGrant",
+        "summary": "Get Contributors by Grant",
+        "description": "Returns a list of contributor addresses for a specific grant. Requires authentication as a team member of the grant.",
+        "tags": ["Contributors", "Grants"],
+        "parameters": [
+          {
+            "name": "grantId",
+            "in": "path",
+            "required": true,
+            "description": "The grant identifier in format 'grantX' where X is the grant ID",
+            "schema": {
+              "type": "string",
+              "pattern": "^grant\\d+$",
+              "example": "grant12"
+            }
+          }
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {
+            "GitHubAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of contributor addresses for the specified grant",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EthereumAddress"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - must be authenticated as a team member"
+          }
+        }
+      }
+    },
+    "/grants/v1/api/export_addresses/{grantRoundId}.json": {
+      "get": {
+        "operationId": "getContributorsByGrantAndRound",
+        "summary": "Get Contributors by Grant and Round",
+        "description": "Returns a list of contributor addresses for a specific grant at a specific round. Requires authentication as a team member of the grant.",
+        "tags": ["Contributors", "Grants", "Rounds"],
+        "parameters": [
+          {
+            "name": "grantRoundId",
+            "in": "path",
+            "required": true,
+            "description": "The grant-round identifier in format 'grantX_roundY' where X is the grant ID and Y is the round number",
+            "schema": {
+              "type": "string",
+              "pattern": "^grant\\d+_round\\d+$",
+              "example": "grant12_round_7"
+            }
+          }
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {
+            "GitHubAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of contributor addresses for the specified grant at a specific round",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EthereumAddress"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - must be authenticated as a team member"
+          }
+        }
+      }
+    },
+    "/grants/v1/api/export_info/{grantRoundId}.json": {
+      "get": {
+        "operationId": "getContributorInfoByGrantAndRound",
+        "summary": "Get Contributor Social Info by Grant and Round",
+        "description": "Returns contributor social info (handle, picture, anonymized, comment) for a specific grant at a specific round. Requires authentication as a team member of the grant.",
+        "tags": ["Contributors", "Grants", "Rounds"],
+        "parameters": [
+          {
+            "name": "grantRoundId",
+            "in": "path",
+            "required": true,
+            "description": "The grant-round identifier in format 'grantX_roundY' where X is the grant ID and Y is the round number",
+            "schema": {
+              "type": "string",
+              "pattern": "^grant\\d+_round\\d+$",
+              "example": "grant12_round7"
+            }
+          }
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {
+            "GitHubAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contributor social information for the specified grant at a specific round",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ContributorInfo"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - must be authenticated as a team member"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "query",
+        "name": "_key",
+        "description": "API key obtained from the response body's meta.api_key field after authenticating via the GitHub authentication flow"
+      },
+      "ApiSecretAuth": {
+        "type": "apiKey",
+        "in": "query",
+        "name": "_secret",
+        "description": "API secret used alongside the API key for authentication"
+      },
+      "GitHubAuth": {
+        "type": "openIdConnect",
+        "openIdConnectUrl": "https://github.com/.well-known/openid-configuration",
+        "description": "GitHub OAuth authentication for Gitcoin"
+      }
+    },
+    "schemas": {
+      "EthereumAddress": {
+        "type": "string",
+        "pattern": "^0x[a-fA-F0-9]{40}$",
+        "description": "An Ethereum wallet address with leading 0x",
+        "example": "0x636f3093258412b96c43bef3663f1b853253ec59"
+      },
+      "ContributorInfo": {
+        "type": "object",
+        "description": "Social information about a grant contributor",
+        "properties": {
+          "handle": {
+            "type": "string",
+            "description": "GitHub handle of the contributor"
+          },
+          "picture": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the contributor's profile picture"
+          },
+          "anonymized": {
+            "type": "boolean",
+            "description": "Whether the contributor has chosen to anonymize their data"
+          },
+          "comment": {
+            "type": "string",
+            "description": "Comment left by the contributor"
+          }
+        }
+      },
+      "GrantExport": {
+        "type": "object",
+        "description": "A grant listing from the grants export endpoint",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Grant ID"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the Grant"
+          },
+          "slug": {
+            "type": "string",
+            "description": "URL slug for the Grant"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the Grant"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the grant on Gitcoin"
+          },
+          "admin_address": {
+            "$ref": "#/components/schemas/EthereumAddress",
+            "description": "Wallet address of the Grant Admin"
+          },
+          "token_address": {
+            "$ref": "#/components/schemas/EthereumAddress",
+            "description": "Token address for contributions"
+          },
+          "token_symbol": {
+            "type": "string",
+            "description": "Token symbol (e.g., ETH, DAI)"
+          },
+          "amount_received": {
+            "type": "number",
+            "format": "float",
+            "description": "Total amount received in USDT/DAI"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "Whether the grant is currently active"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Grants",
+      "description": "Operations for listing and querying grants"
+    },
+    {
+      "name": "Contributors",
+      "description": "Operations for accessing contributor address data"
+    },
+    {
+      "name": "Rounds",
+      "description": "Operations related to Gitcoin Grants funding rounds"
+    }
+  ],
+  "externalDocs": {
+    "description": "Gitcoin API Documentation",
+    "url": "https://github.com/gitcoinco/web/blob/master/docs/API.md"
+  }
+}

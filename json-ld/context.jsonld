@@ -1,0 +1,121 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "gitcoin": "https://gitcoin.co/api/v0.1/",
+    "passport": "https://api.passport.xyz/v2/",
+    "w3id": "https://w3id.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "vc": "https://www.w3.org/2018/credentials#",
+
+    "Bounty": {
+      "@id": "gitcoin:bounties",
+      "@type": "@id"
+    },
+    "Grant": {
+      "@id": "gitcoin:grants",
+      "@type": "@id"
+    },
+    "PassportScore": {
+      "@id": "passport:stamps/score",
+      "@type": "@id"
+    },
+    "PassportStamp": {
+      "@id": "passport:stamps",
+      "@type": "@id"
+    },
+
+    "title": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "created_on": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "modified_on": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "expires_date": {
+      "@id": "schema:expires",
+      "@type": "xsd:dateTime"
+    },
+    "github_url": {
+      "@id": "schema:codeRepository",
+      "@type": "@id"
+    },
+    "logo": {
+      "@id": "schema:logo",
+      "@type": "@id"
+    },
+    "reference_url": {
+      "@id": "schema:sameAs",
+      "@type": "@id"
+    },
+    "keywords": "schema:keywords",
+    "status": "schema:status",
+    "is_open": "schema:openingHoursSpecification",
+    "value_in_usdt_now": {
+      "@id": "schema:price",
+      "@type": "xsd:decimal"
+    },
+    "amount_received": {
+      "@id": "schema:totalPaymentDue",
+      "@type": "xsd:decimal"
+    },
+    "network": "schema:network",
+    "token_name": "gitcoin:tokenName",
+    "token_address": "gitcoin:tokenAddress",
+    "token_symbol": "gitcoin:tokenSymbol",
+    "bounty_type": "gitcoin:bountyType",
+    "project_length": "gitcoin:projectLength",
+    "experience_level": "gitcoin:experienceLevel",
+    "bounty_owner_address": "gitcoin:bountyOwnerAddress",
+    "bounty_owner_github_username": "gitcoin:bountyOwnerGithubUsername",
+    "fulfiller_address": "gitcoin:fulfillerAddress",
+    "fulfiller_github_username": "gitcoin:fulfillerGithubUsername",
+    "contract_address": "gitcoin:contractAddress",
+    "admin_address": "gitcoin:adminAddress",
+    "admin_profile": "gitcoin:adminProfile",
+    "team_members": "gitcoin:teamMembers",
+    "value_in_token": "gitcoin:valueInToken",
+    "value_in_eth": "gitcoin:valueInEth",
+    "current_bounty": "gitcoin:currentBounty",
+    "web3_created": "gitcoin:web3Created",
+    "action_urls": "gitcoin:actionUrls",
+    "paid": "gitcoin:paid",
+
+    "address": "gitcoin:ethereumAddress",
+    "score": "gitcoin:passportScore",
+    "stamp_scores": "gitcoin:stampScores",
+    "last_score_timestamp": {
+      "@id": "gitcoin:lastScoreTimestamp",
+      "@type": "xsd:dateTime"
+    },
+    "expiration_date": {
+      "@id": "gitcoin:expirationDate",
+      "@type": "xsd:dateTime"
+    },
+    "credential": {
+      "@id": "vc:VerifiableCredential",
+      "@type": "@id"
+    },
+    "issuer": "vc:issuer",
+    "issuanceDate": {
+      "@id": "vc:issuanceDate",
+      "@type": "xsd:dateTime"
+    },
+    "credentialSubject": "vc:credentialSubject",
+    "proof": "vc:proof",
+
+    "handle": "gitcoin:handle",
+    "avatar_url": {
+      "@id": "schema:image",
+      "@type": "@id"
+    },
+    "total_earned": "gitcoin:totalEarned",
+    "position": "schema:position",
+    "organizations": "gitcoin:organizations",
+    "required_gas_price": "gitcoin:requiredGasPrice"
+  }
+}

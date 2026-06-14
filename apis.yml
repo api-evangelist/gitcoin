@@ -39,7 +39,13 @@ apis:
       - type: Documentation
         url: https://docs.gitcoin.co/mk_rest_api/
       - type: OpenAPI
-        url: https://github.com/gitcoinco/web/blob/master/docs/API.md
+        url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/openapi/gitcoin-core-api-openapi.json
+      - type: JSONSchema
+        url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/bounty.json
+      - type: JSONSchema
+        url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/grant.json
+      - type: Example
+        url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/bounty-example.json
       - type: Plans
         url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/plans/plans.yml
       - type: RateLimits
@@ -69,6 +75,8 @@ apis:
     properties:
       - type: Documentation
         url: https://github.com/gitcoinco/web/blob/master/docs/API.md
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/openapi/gitcoin-grants-api-openapi.json
       - type: Plans
         url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/plans/plans.yml
       - type: RateLimits
@@ -142,6 +150,12 @@ apis:
         url: https://docs.passport.human.tech/building-with-passport/passport-api/getting-access
       - type: DeveloperPortal
         url: https://developer.passport.xyz
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/openapi/gitcoin-passport-stamps-api-openapi.json
+      - type: JSONSchema
+        url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/passport-stamp.json
+      - type: Example
+        url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/passport-score-example.json
       - type: Plans
         url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/plans/plans.yml
       - type: RateLimits
@@ -180,6 +194,8 @@ common:
     url: https://gitcoin.co/terms
   - type: PrivacyPolicy
     url: https://gitcoin.co/privacy
+  - type: JSONLDContext
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-ld/context.jsonld
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
