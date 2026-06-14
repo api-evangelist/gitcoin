@@ -1,0 +1,185 @@
+name: Gitcoin
+description: >-
+  Gitcoin is a public goods funding platform that enables communities to fund
+  open-source software, research, and other digital public goods through
+  quadratic funding, direct grants, and bounties. The platform provides REST
+  APIs for querying grants, bounties, funding rounds, and project metadata, as
+  well as the Gitcoin Passport Stamps API for verifiable credential scoring
+  and identity verification.
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Public Goods
+  - Grants
+  - Bounties
+  - Quadratic Funding
+  - Web3
+  - Verifiable Credentials
+  - Identity
+  - Open Source
+created: "2026-06-14"
+modified: "2026-06-14"
+url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/apis.yml
+specificationVersion: "0.19"
+apis:
+  - name: Gitcoin Core API
+    description: >-
+      Read-only REST API providing access to Gitcoin bounties and grants data.
+      Supports filtering by experience level, project length, bounty type,
+      owner address, open status, and GitHub URL. Returns JSON-formatted data
+      including funding amounts, contributor addresses, token types, and
+      project metadata.
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://docs.gitcoin.co/mk_rest_api/
+    baseURL: https://gitcoin.co/api/v0.1
+    tags:
+      - Bounties
+      - Grants
+      - Funding
+    properties:
+      - type: Documentation
+        url: https://docs.gitcoin.co/mk_rest_api/
+      - type: OpenAPI
+        url: https://github.com/gitcoinco/web/blob/master/docs/API.md
+      - type: Plans
+        url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/plans/plans.yml
+      - type: RateLimits
+        url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/rate-limits/rate-limits.yml
+    contact:
+      - FN: Gitcoin Support
+        url: https://support.gitcoin.co/
+        email: ""
+    overlays: []
+    aid: gitcoin:gitcoin-core-api
+
+  - name: Gitcoin Grants API
+    description: >-
+      API for querying Gitcoin grants data including grant listings, contributors
+      by round, and addresses that have funded grants. The grants API supports
+      filtering by title, admin address, description, keyword, grant type, and
+      primary key. Also exposes contributor export endpoints for quadratic
+      funding rounds.
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://github.com/gitcoinco/web/blob/master/docs/API.md
+    baseURL: https://gitcoin.co/api/v0.1/grants
+    tags:
+      - Grants
+      - Quadratic Funding
+      - Contributors
+      - Rounds
+    properties:
+      - type: Documentation
+        url: https://github.com/gitcoinco/web/blob/master/docs/API.md
+      - type: Plans
+        url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/plans/plans.yml
+      - type: RateLimits
+        url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/rate-limits/rate-limits.yml
+    contact:
+      - FN: Gitcoin Support
+        url: https://support.gitcoin.co/
+        email: ""
+    overlays: []
+    aid: gitcoin:gitcoin-grants-api
+
+  - name: Gitcoin Grants Stack Indexer API
+    description: >-
+      GraphQL API for querying indexed on-chain data from the Gitcoin Grants
+      Stack and Allo Protocol. Provides access to funding rounds, projects,
+      applications, contributions, and quadratic funding match calculations
+      across supported EVM chains. Supports the GraphiQL playground for schema
+      exploration.
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://grants-stack-indexer-v2.gitcoin.co/graphiql
+    baseURL: https://grants-stack-indexer-v2.gitcoin.co/graphql
+    tags:
+      - GraphQL
+      - Grants Stack
+      - Allo Protocol
+      - Rounds
+      - Projects
+      - On-Chain
+    properties:
+      - type: Documentation
+        url: https://docs.allo.gitcoin.co/
+      - type: GraphQL
+        url: https://grants-stack-indexer-v2.gitcoin.co/graphql
+      - type: GraphiQL
+        url: https://grants-stack-indexer-v2.gitcoin.co/graphiql
+      - type: GitHubRepository
+        url: https://github.com/gitcoinco/grants-stack-indexer
+      - type: Plans
+        url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/plans/plans.yml
+      - type: RateLimits
+        url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/rate-limits/rate-limits.yml
+    contact:
+      - FN: Gitcoin Support
+        url: https://support.gitcoin.co/
+        email: ""
+    overlays: []
+    aid: gitcoin:gitcoin-grants-stack-indexer-api
+
+  - name: Gitcoin Passport Stamps API
+    description: >-
+      REST API for retrieving Gitcoin Passport verifiable credential scores and
+      stamps for Ethereum addresses. Supports scoring by scorer ID, fetching
+      all verified stamps for an address, and retrieving metadata about all
+      available stamp types. Used to verify human identity and Sybil resistance
+      in Web3 applications. Requires API key and scorer ID from the developer
+      portal.
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://docs.passport.human.tech/building-with-passport/passport-api/api-reference
+    baseURL: https://api.passport.xyz
+    tags:
+      - Passport
+      - Verifiable Credentials
+      - Stamps
+      - Identity
+      - Sybil Resistance
+      - Scoring
+    properties:
+      - type: Documentation
+        url: https://docs.passport.human.tech/building-with-passport/passport-api/api-reference
+      - type: GettingStarted
+        url: https://docs.passport.human.tech/building-with-passport/passport-api/getting-access
+      - type: DeveloperPortal
+        url: https://developer.passport.xyz
+      - type: Plans
+        url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/plans/plans.yml
+      - type: RateLimits
+        url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/rate-limits/rate-limits.yml
+      - type: FinOps
+        url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/finops/finops.yml
+    contact:
+      - FN: Gitcoin Passport Support
+        url: https://support.gitcoin.co/
+        email: ""
+    overlays: []
+    aid: gitcoin:gitcoin-passport-stamps-api
+
+common:
+  - type: Website
+    url: https://gitcoin.co/
+  - type: Blog
+    url: https://gitcoin.co/blog
+  - type: Documentation
+    url: https://docs.gitcoin.co/
+  - type: GitHubOrganization
+    url: https://github.com/gitcoinco
+  - type: Support
+    url: https://support.gitcoin.co/
+  - type: Discord
+    url: https://discord.gg/gitcoin
+  - type: Twitter
+    url: https://twitter.com/gitcoin
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/gitcoin
+  - type: Forum
+    url: https://gov.gitcoin.co/
+  - type: PythonClient
+    url: https://github.com/gitcoinco/python-api-client
+  - type: TermsOfService
+    url: https://gitcoin.co/terms
+  - type: PrivacyPolicy
+    url: https://gitcoin.co/privacy
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

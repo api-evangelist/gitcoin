@@ -1,0 +1,67 @@
+name: Gitcoin API Rate Limits
+description: >-
+  Rate limit information for Gitcoin's public APIs. The Core REST API (bounties
+  and grants) does not publish explicit rate limits. The Gitcoin Passport Stamps
+  API uses a four-tier rate limit system shared across v1 and v2 endpoints.
+  All Passport API tiers share a 60-second request timeout.
+limits:
+  - api: Gitcoin Core REST API
+    description: >-
+      The core Gitcoin REST API for bounties and grants does not publish
+      explicit rate limits. Public endpoints are read-only and intended for
+      moderate query loads. Pagination via the limit parameter is recommended
+      for large result sets.
+    documented: false
+    notes: Use the limit query parameter to paginate large responses.
+
+  - api: Gitcoin Grants Stack Indexer GraphQL API
+    description: >-
+      The Grants Stack Indexer GraphQL API does not publish explicit rate limits
+      in its public documentation. It is community-run infrastructure for
+      querying indexed on-chain data.
+    documented: false
+    notes: Use pagination and targeted queries to reduce load on the indexer.
+
+  - api: Gitcoin Passport Stamps API
+    description: >-
+      Four-tier rate limit system for the Passport Stamps API. Rate limit quota
+      is shared between v1 and v2 endpoints. All accounts start at Tier 1 and
+      can request elevation via formal application.
+    documented: true
+    timeout: 60 seconds
+    sharedQuota: true
+    sharedAcross:
+      - v1 endpoints
+      - v2 endpoints
+    tiers:
+      - tier: 1
+        requests: 125
+        period: 15 minutes
+        description: Default tier for all new API key registrations
+      - tier: 2
+        requests: 350
+        period: 15 minutes
+        description: Elevated tier available via formal request
+      - tier: 3
+        requests: 2000
+        period: 15 minutes
+        description: High-volume tier for production applications
+      - tier: 4
+        requests: 2000+
+        period: 15 minutes
+        description: Enterprise tier with custom limits above 2000 per 15 minutes
+    upgradeProcess: >-
+      Submit a formal request via the Google Form linked from the Gitcoin
+      Passport developer documentation to request a higher rate limit tier.
+    retryGuidance: >-
+      Implement retry logic with exponential backoff for requests that time out
+      within the 60-second window.
+    headers:
+      - name: X-API-KEY
+        description: Required authentication header containing the API key
+        in: request
+    references:
+      - url: https://docs.passport.human.tech/building-with-passport/passport-api/api-reference
+        description: Passport Stamps API v2 reference documentation
+      - url: https://docs.passport.human.tech/building-with-passport/passport-api/getting-access
+        description: Getting access to the Passport API

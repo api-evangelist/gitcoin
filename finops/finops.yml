@@ -1,0 +1,62 @@
+name: Gitcoin API FinOps
+description: >-
+  Financial operations guidance for Gitcoin API consumers. The core Gitcoin
+  REST API (bounties and grants) is free and publicly accessible with no cost
+  model. The Gitcoin Passport Stamps API is currently free with rate-limit-based
+  tiers; no published pricing exists as of June 2026. Consumers should monitor
+  usage against tier thresholds to avoid throttling.
+costModel:
+  - api: Gitcoin Core REST API
+    pricing: Free
+    billingModel: None
+    notes: >-
+      Publicly accessible REST API with no authentication or payment required
+      for most endpoints. Protected grant contributor export endpoints require
+      API credentials obtained through Gitcoin but remain free of charge.
+    costDrivers: []
+    optimizationTips:
+      - Use the limit query parameter to retrieve only necessary records
+      - Apply available filter parameters (experience_level, bounty_type, is_open)
+        to reduce response payload size
+      - Cache responses for read-only data that changes infrequently
+
+  - api: Gitcoin Grants Stack Indexer GraphQL API
+    pricing: Free
+    billingModel: None
+    notes: >-
+      Community-run GraphQL indexer for Gitcoin Grants Stack on-chain data.
+      No cost to query. No published SLA or uptime guarantees.
+    costDrivers: []
+    optimizationTips:
+      - Use GraphQL field selection to request only needed data
+      - Implement pagination for large result sets
+      - Cache indexed data where round/project data is not expected to change
+
+  - api: Gitcoin Passport Stamps API
+    pricing: Free (rate-limited by tier)
+    billingModel: Tier-based, currently no monetary cost
+    notes: >-
+      As of June 2026, the Gitcoin Passport Stamps API is free across all tiers.
+      Tier assignment controls request volume allowances. Higher tiers require
+      a formal approval process via Google Form. No credit card or payment
+      information required at any tier. Pricing may change as the Passport
+      product evolves under Human Passport / passport.xyz branding.
+    costDrivers:
+      - description: Rate limit tier determines throughput capacity
+        impact: Operational — exceeding tier limits causes throttling, not billing
+    optimizationTips:
+      - Cache passport scores and stamp data; scores do not update in real time
+      - Implement exponential backoff for retries on timeout (60s limit per request)
+      - Request only the scorer IDs relevant to your application
+      - Use the include_metadata parameter selectively to reduce response size
+      - Batch address lookups where the API supports pagination rather than
+        making individual requests per address
+    upgradeProcess: >-
+      To increase rate limit tier, submit a formal request via the Google Form
+      linked from docs.passport.human.tech. No cost is associated with tier
+      upgrades at this time.
+    references:
+      - url: https://developer.passport.xyz
+        description: Gitcoin Passport developer portal for API key registration
+      - url: https://docs.passport.human.tech/building-with-passport/passport-api/getting-access
+        description: Getting access to the Passport Stamps API
