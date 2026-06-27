@@ -40,7 +40,7 @@ apis:
     url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/bounty.json
   - type: JSONSchema
     url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/grant.json
-  - type: Example
+  - type: Examples
     url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/bounty-example.json
   - type: Plans
     url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/plans/plans.yml
@@ -145,7 +145,7 @@ apis:
     url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/openapi/gitcoin-passport-stamps-api-openapi.json
   - type: JSONSchema
     url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/passport-stamp.json
-  - type: Example
+  - type: Examples
     url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/passport-score-example.json
   - type: Plans
     url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/plans/plans.yml
@@ -176,7 +176,7 @@ common:
   url: https://twitter.com/gitcoin
 - type: LinkedIn
   url: https://www.linkedin.com/company/gitcoin
-- type: Forum
+- type: Forums
   url: https://gov.gitcoin.co/
 - type: PythonClient
   url: https://github.com/gitcoinco/python-api-client
