@@ -160,6 +160,10 @@ apis:
   overlays: []
   aid: gitcoin:gitcoin-passport-stamps-api
 common:
+- type: DomainSecurity
+  url: security/gitcoin-domain-security.yml
+- type: Authentication
+  url: authentication/gitcoin-authentication.yml
 - type: Website
   url: https://gitcoin.co/
 - type: Blog

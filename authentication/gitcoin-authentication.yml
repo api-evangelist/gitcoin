@@ -1,0 +1,38 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/gitcoin-grants-api-openapi.json, openapi/gitcoin-passport-stamps-api-openapi.json
+summary:
+  types:
+  - apiKey
+  - openIdConnect
+  api_key_in:
+  - header
+  - query
+schemes:
+- name: ApiKeyAuth
+  type: apiKey
+  in: query
+  parameter: _key
+  description: API key obtained from the response body's meta.api_key field after authenticating
+    via the GitHub authentication flow
+  sources:
+  - openapi/gitcoin-grants-api-openapi.json
+- name: ApiSecretAuth
+  type: apiKey
+  in: query
+  parameter: _secret
+  description: API secret used alongside the API key for authentication
+  sources:
+  - openapi/gitcoin-grants-api-openapi.json
+- name: GitHubAuth
+  type: openIdConnect
+  openIdConnectUrl: https://github.com/.well-known/openid-configuration
+  description: GitHub OAuth authentication for Gitcoin
+  sources:
+  - openapi/gitcoin-grants-api-openapi.json
+- name: function
+  type: apiKey
+  in: header
+  parameter: X-API-Key
+  sources:
+  - openapi/gitcoin-passport-stamps-api-openapi.json
