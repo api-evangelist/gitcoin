@@ -160,6 +160,8 @@ apis:
   overlays: []
   aid: gitcoin:gitcoin-passport-stamps-api
 common:
+- type: AgenticAccess
+  url: agentic-access/gitcoin-agentic-access.yml
 - type: DomainSecurity
   url: security/gitcoin-domain-security.yml
 - type: Authentication

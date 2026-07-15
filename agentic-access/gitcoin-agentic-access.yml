@@ -1,0 +1,144 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/gitcoin-core-api-openapi.json, openapi/gitcoin-grants-api-openapi.json, openapi/gitcoin-passport-stamps-api-openapi.json
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 13
+  by_action_class:
+    connected: 13
+  by_consequence:
+    read: 13
+  human_in_the_loop_required: 0
+operations:
+- path: /bounties/
+  method: get
+  operationId: listBounties
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /grants/
+  method: get
+  operationId: listGrants
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /grants/grants.json
+  method: get
+  operationId: getAllGrants
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /grants/v1/api/export_addresses/all.json
+  method: get
+  operationId: getAllContributorAddresses
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /grants/v1/api/export_addresses/{roundId}.json
+  method: get
+  operationId: getContributorsByRound
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /grants/v1/api/export_addresses/{grantId}.json
+  method: get
+  operationId: getContributorsByGrant
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /grants/v1/api/export_addresses/{grantRoundId}.json
+  method: get
+  operationId: getContributorsByGrantAndRound
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /grants/v1/api/export_info/{grantRoundId}.json
+  method: get
+  operationId: getContributorInfoByGrantAndRound
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/models/score/{address}
+  method: get
+  operationId: v2_api_api_models_get_analysis
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/stamps/{scorer_id}/score/{address}
+  method: get
+  operationId: v2_api_api_stamps_a_submit_passport
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/stamps/{scorer_id}/score/{address}/history
+  method: get
+  operationId: v2_api_api_stamps_get_score_history
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/stamps/metadata
+  method: get
+  operationId: v2_api_api_stamps_stamp_display
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/stamps/{address}
+  method: get
+  operationId: v2_api_api_stamps_get_passport_stamps
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
