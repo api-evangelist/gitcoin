@@ -1,0 +1,141 @@
+openapi: 3.1.0
+info:
+  title: Gitcoin Core Bounties Model Analysis API
+  version: 0.1.0
+  description: Read-only REST API providing access to Gitcoin bounties and grants data. Supports filtering by experience level, project length, bounty type, owner address, open status, and GitHub URL. Returns JSON-formatted data including funding amounts, contributor addresses, token types, and project metadata.
+  termsOfService: https://gitcoin.co/terms
+  contact:
+    name: Gitcoin Support
+    url: https://support.gitcoin.co/
+  license:
+    name: Gitcoin Terms
+    url: https://gitcoin.co/terms
+servers:
+- url: https://gitcoin.co/api/v0.1
+  description: Gitcoin API v0.1
+tags:
+- name: Model Analysis
+paths:
+  /v2/models/score/{address}:
+    get:
+      operationId: v2_api_api_models_get_analysis
+      summary: Retrieve Passport analysis for an Ethereum address
+      parameters:
+      - in: path
+        name: address
+        schema:
+          title: Address
+          type: string
+        required: true
+      - in: query
+        name: model
+        schema:
+          default: ''
+          title: Model
+          type: string
+        required: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PassportAnalysisResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessageResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessageResponse'
+      description: Retrieve Passport analysis for an Ethereum address, currently consisting of the ETH activity model humanity score (0-100, higher is more likely human).
+      tags:
+      - Model Analysis
+      security:
+      - function: []
+components:
+  schemas:
+    PassportAnalysisResponse:
+      properties:
+        address:
+          title: Address
+          type: string
+        details:
+          $ref: '#/components/schemas/PassportAnalysisDetails'
+      required:
+      - address
+      - details
+      title: PassportAnalysisResponse
+      type: object
+    ScoreModel:
+      properties:
+        score:
+          title: Score
+          type: number
+      required:
+      - score
+      title: ScoreModel
+      type: object
+    PassportAnalysisDetails:
+      properties:
+        models:
+          additionalProperties:
+            anyOf:
+            - $ref: '#/components/schemas/ScoreModel'
+            - $ref: '#/components/schemas/DetailedScoreModel'
+          title: Models
+          type: object
+      required:
+      - models
+      title: PassportAnalysisDetails
+      type: object
+    ErrorMessageResponse:
+      properties:
+        detail:
+          title: Detail
+          type: string
+      required:
+      - detail
+      title: ErrorMessageResponse
+      type: object
+    DetailedScoreModel:
+      properties:
+        score:
+          title: Score
+          type: integer
+        num_transactions:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Num Transactions
+        first_funder:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: First Funder
+        first_funder_amount:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: First Funder Amount
+        first_funder_timestamp:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: First Funder Timestamp
+      required:
+      - score
+      - num_transactions
+      - first_funder
+      - first_funder_amount
+      - first_funder_timestamp
+      title: DetailedScoreModel
+      type: object
+externalDocs:
+  description: Gitcoin API Documentation
+  url: https://docs.gitcoin.co/mk_rest_api/

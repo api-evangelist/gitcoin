@@ -1,0 +1,177 @@
+openapi: 3.1.0
+info:
+  title: Gitcoin Core Bounties Contributors API
+  version: 0.1.0
+  description: Read-only REST API providing access to Gitcoin bounties and grants data. Supports filtering by experience level, project length, bounty type, owner address, open status, and GitHub URL. Returns JSON-formatted data including funding amounts, contributor addresses, token types, and project metadata.
+  termsOfService: https://gitcoin.co/terms
+  contact:
+    name: Gitcoin Support
+    url: https://support.gitcoin.co/
+  license:
+    name: Gitcoin Terms
+    url: https://gitcoin.co/terms
+servers:
+- url: https://gitcoin.co/api/v0.1
+  description: Gitcoin API v0.1
+tags:
+- name: Contributors
+  description: Operations for accessing contributor address data
+paths:
+  /grants/v1/api/export_addresses/all.json:
+    get:
+      operationId: getAllContributorAddresses
+      summary: Get All Contributor Addresses
+      description: Returns a list of all Ethereum addresses that have ever funded a Gitcoin Grant.
+      tags:
+      - Contributors
+      responses:
+        '200':
+          description: A list of all contributor Ethereum addresses
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EthereumAddress'
+  /grants/v1/api/export_addresses/{roundId}.json:
+    get:
+      operationId: getContributorsByRound
+      summary: Get Contributors by Round
+      description: Returns a list of contributor Ethereum addresses for a specific Gitcoin Grants Round (rounds 1-10 supported).
+      tags:
+      - Contributors
+      parameters:
+      - name: roundId
+        in: path
+        required: true
+        description: The round identifier in format 'roundX' where X is the round number (1-10)
+        schema:
+          type: string
+          pattern: ^round\d+$
+          example: round7
+      responses:
+        '200':
+          description: A list of contributor addresses for the specified round
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EthereumAddress'
+  /grants/v1/api/export_addresses/{grantId}.json:
+    get:
+      operationId: getContributorsByGrant
+      summary: Get Contributors by Grant
+      description: Returns a list of contributor addresses for a specific grant. Requires authentication as a team member of the grant.
+      tags:
+      - Contributors
+      parameters:
+      - name: grantId
+        in: path
+        required: true
+        description: The grant identifier in format 'grantX' where X is the grant ID
+        schema:
+          type: string
+          pattern: ^grant\d+$
+          example: grant12
+      security:
+      - ApiKeyAuth: []
+      - GitHubAuth: []
+      responses:
+        '200':
+          description: A list of contributor addresses for the specified grant
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EthereumAddress'
+        '401':
+          description: Unauthorized - must be authenticated as a team member
+  /grants/v1/api/export_addresses/{grantRoundId}.json:
+    get:
+      operationId: getContributorsByGrantAndRound
+      summary: Get Contributors by Grant and Round
+      description: Returns a list of contributor addresses for a specific grant at a specific round. Requires authentication as a team member of the grant.
+      tags:
+      - Contributors
+      parameters:
+      - name: grantRoundId
+        in: path
+        required: true
+        description: The grant-round identifier in format 'grantX_roundY' where X is the grant ID and Y is the round number
+        schema:
+          type: string
+          pattern: ^grant\d+_round\d+$
+          example: grant12_round_7
+      security:
+      - ApiKeyAuth: []
+      - GitHubAuth: []
+      responses:
+        '200':
+          description: A list of contributor addresses for the specified grant at a specific round
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EthereumAddress'
+        '401':
+          description: Unauthorized - must be authenticated as a team member
+  /grants/v1/api/export_info/{grantRoundId}.json:
+    get:
+      operationId: getContributorInfoByGrantAndRound
+      summary: Get Contributor Social Info by Grant and Round
+      description: Returns contributor social info (handle, picture, anonymized, comment) for a specific grant at a specific round. Requires authentication as a team member of the grant.
+      tags:
+      - Contributors
+      parameters:
+      - name: grantRoundId
+        in: path
+        required: true
+        description: The grant-round identifier in format 'grantX_roundY' where X is the grant ID and Y is the round number
+        schema:
+          type: string
+          pattern: ^grant\d+_round\d+$
+          example: grant12_round7
+      security:
+      - ApiKeyAuth: []
+      - GitHubAuth: []
+      responses:
+        '200':
+          description: Contributor social information for the specified grant at a specific round
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ContributorInfo'
+        '401':
+          description: Unauthorized - must be authenticated as a team member
+components:
+  schemas:
+    EthereumAddress:
+      type: string
+      pattern: ^0x[a-fA-F0-9]{40}$
+      description: An Ethereum wallet address with leading 0x
+      example: '0x636f3093258412b96c43bef3663f1b853253ec59'
+    ContributorInfo:
+      type: object
+      description: Social information about a grant contributor
+      properties:
+        handle:
+          type: string
+          description: GitHub handle of the contributor
+        picture:
+          type: string
+          format: uri
+          description: URL to the contributor's profile picture
+        anonymized:
+          type: boolean
+          description: Whether the contributor has chosen to anonymize their data
+        comment:
+          type: string
+          description: Comment left by the contributor
+externalDocs:
+  description: Gitcoin API Documentation
+  url: https://docs.gitcoin.co/mk_rest_api/
