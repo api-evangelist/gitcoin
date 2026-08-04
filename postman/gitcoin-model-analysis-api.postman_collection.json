@@ -1,0 +1,257 @@
+{
+  "info": {
+    "_postman_id": "c6188852-a139-4f57-8670-f1e46d03f310",
+    "name": "Gitcoin Core Bounties Model Analysis API",
+    "description": "Read-only REST API providing access to Gitcoin bounties and grants data. Supports filtering by experience level, project length, bounty type, owner address, open status, and GitHub URL. Returns JSON-formatted data including funding amounts, contributor addresses, token types, and project metadata.\n\nContact Support:\n Name: Gitcoin Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:44:14.000Z",
+    "updatedAt": "2026-07-28T01:44:14.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c6188852-a139-4f57-8670-f1e46d03f310"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "models",
+          "item": [
+            {
+              "name": "score",
+              "item": [
+                {
+                  "name": "{address}",
+                  "item": [
+                    {
+                      "name": "Retrieve Passport analysis for an Ethereum address",
+                      "id": "64494939-d286-40a8-86f4-12b674cb077c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/models/score/:address?model=",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "models",
+                            "score",
+                            ":address"
+                          ],
+                          "query": [
+                            {
+                              "key": "model",
+                              "value": ""
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "9e2a1c4e-b221-4150-b1e3-ebc9265670c4",
+                              "key": "address",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Retrieve Passport analysis for an Ethereum address, currently consisting of the ETH activity model humanity score (0-100, higher is more likely human)."
+                      },
+                      "response": [
+                        {
+                          "id": "3cb0aa2a-b7d5-4b01-acc5-4a31655d2d88",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/models/score/:address?model=",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "models",
+                                "score",
+                                ":address"
+                              ],
+                              "query": [
+                                {
+                                  "key": "model",
+                                  "value": ""
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "address"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"address\": \"<string>\",\n  \"details\": {\n    \"models\": {\n      \"officia_61\": {\n        \"score\": \"<number>\"\n      }\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T01:44:14.000Z",
+                          "updatedAt": "2026-07-28T01:44:14.000Z",
+                          "uid": "35240-3cb0aa2a-b7d5-4b01-acc5-4a31655d2d88"
+                        },
+                        {
+                          "id": "0019f187-ffdc-4b8c-93e7-c04016771b2e",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/models/score/:address?model=",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "models",
+                                "score",
+                                ":address"
+                              ],
+                              "query": [
+                                {
+                                  "key": "model",
+                                  "value": ""
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "address"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:44:14.000Z",
+                          "updatedAt": "2026-07-28T01:44:14.000Z",
+                          "uid": "35240-0019f187-ffdc-4b8c-93e7-c04016771b2e"
+                        },
+                        {
+                          "id": "1c56a189-23b3-4c26-ac3c-76f34efb006f",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/models/score/:address?model=",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "models",
+                                "score",
+                                ":address"
+                              ],
+                              "query": [
+                                {
+                                  "key": "model",
+                                  "value": ""
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "address"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:44:14.000Z",
+                          "updatedAt": "2026-07-28T01:44:14.000Z",
+                          "uid": "35240-1c56a189-23b3-4c26-ac3c-76f34efb006f"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:44:14.000Z",
+                      "updatedAt": "2026-07-28T01:44:14.000Z",
+                      "uid": "35240-64494939-d286-40a8-86f4-12b674cb077c"
+                    }
+                  ],
+                  "id": "d4d148da-6640-4210-9178-e93f1db6a9eb",
+                  "createdAt": "2026-07-28T01:44:14.000Z",
+                  "updatedAt": "2026-07-28T01:44:14.000Z",
+                  "uid": "35240-d4d148da-6640-4210-9178-e93f1db6a9eb"
+                }
+              ],
+              "id": "2aa62365-6b27-4bdc-a7a9-744100cd4728",
+              "createdAt": "2026-07-28T01:44:14.000Z",
+              "updatedAt": "2026-07-28T01:44:14.000Z",
+              "uid": "35240-2aa62365-6b27-4bdc-a7a9-744100cd4728"
+            }
+          ],
+          "id": "e91b2441-a892-4f67-a988-76585bb76582",
+          "createdAt": "2026-07-28T01:44:14.000Z",
+          "updatedAt": "2026-07-28T01:44:14.000Z",
+          "uid": "35240-e91b2441-a892-4f67-a988-76585bb76582"
+        }
+      ],
+      "id": "3691718d-3c6f-480f-9802-9f1991951fc8",
+      "createdAt": "2026-07-28T01:44:14.000Z",
+      "updatedAt": "2026-07-28T01:44:14.000Z",
+      "uid": "35240-3691718d-3c6f-480f-9802-9f1991951fc8"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://gitcoin.co/api/v0.1"
+    }
+  ]
+}

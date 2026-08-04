@@ -1,0 +1,535 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Gitcoin Core API",
+    "version": "0.1.0",
+    "description": "Read-only REST API providing access to Gitcoin bounties and grants data. Supports filtering by experience level, project length, bounty type, owner address, open status, and GitHub URL. Returns JSON-formatted data including funding amounts, contributor addresses, token types, and project metadata.",
+    "termsOfService": "https://gitcoin.co/terms",
+    "contact": {
+      "name": "Gitcoin Support",
+      "url": "https://support.gitcoin.co/"
+    },
+    "license": {
+      "name": "Gitcoin Terms",
+      "url": "https://gitcoin.co/terms"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://gitcoin.co/api/v0.1",
+      "description": "Gitcoin API v0.1"
+    }
+  ],
+  "paths": {
+    "/bounties/": {
+      "get": {
+        "operationId": "listBounties",
+        "summary": "List Bounties",
+        "description": "Returns a list of bounties with their current status. Supports filtering by experience level, project length, bounty type, owner address, open status, and GitHub URL.",
+        "tags": ["Bounties"],
+        "parameters": [
+          {
+            "name": "experience_level",
+            "in": "query",
+            "description": "Filter by experience level (e.g., Beginner, Intermediate, Advanced)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "project_length",
+            "in": "query",
+            "description": "Filter by project length (e.g., Hours, Days, Weeks, Months)",
+            "schema": {
+              "type": "string",
+              "enum": ["Hours", "Days", "Weeks", "Months"]
+            }
+          },
+          {
+            "name": "bounty_type",
+            "in": "query",
+            "description": "Filter by bounty type (e.g., Bug, Feature, Security)",
+            "schema": {
+              "type": "string",
+              "enum": ["Bug", "Feature", "Security", "Documentation", "Design"]
+            }
+          },
+          {
+            "name": "bounty_owner_address",
+            "in": "query",
+            "description": "Filter by Ethereum address of the bounty owner",
+            "schema": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            }
+          },
+          {
+            "name": "is_open",
+            "in": "query",
+            "description": "Filter by whether the bounty is open",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "github_url",
+            "in": "query",
+            "description": "Filter by GitHub URL. Can be a comma-separated list of GitHub URLs.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pk",
+            "in": "query",
+            "description": "Return a single bounty by its primary key ID",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "description": "Order results by a field key. Prefix with '-' for descending order (e.g., -expires_date)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit number of results returned",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Offset for pagination",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of bounties",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Bounty"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/grants/": {
+      "get": {
+        "operationId": "listGrants",
+        "summary": "List Grants",
+        "description": "Returns a list of grants and their metadata including funding amounts, contributor addresses, and project information.",
+        "tags": ["Grants"],
+        "parameters": [
+          {
+            "name": "title",
+            "in": "query",
+            "description": "Filter grants by title",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "admin_address",
+            "in": "query",
+            "description": "Filter grants by admin Ethereum address",
+            "schema": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "description": "Filter grants by description text",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "keyword",
+            "in": "query",
+            "description": "Filter grants by keyword",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "grant_type",
+            "in": "query",
+            "description": "Filter by grant type",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pk",
+            "in": "query",
+            "description": "Return a single grant by its primary key ID",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit number of results returned",
+            "schema": {
+              "type": "integer",
+              "example": 10
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Offset for pagination",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of grants",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Grant"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "EthereumAddress": {
+        "type": "string",
+        "pattern": "^0x[a-fA-F0-9]{40}$",
+        "description": "An Ethereum wallet address with leading 0x",
+        "example": "0x636f3093258412b96c43bef3663f1b853253ec59"
+      },
+      "Profile": {
+        "type": "object",
+        "description": "Gitcoin user profile",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Profile ID"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the Gitcoin profile"
+          },
+          "handle": {
+            "type": "string",
+            "description": "GitHub handle/username associated with the Profile"
+          },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of keywords associated with the Profile"
+          },
+          "position": {
+            "type": "integer",
+            "description": "Position of the Profile in the Weekly Earners leaderboard"
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the Gitcoin Avatar of the Profile"
+          },
+          "github_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the GitHub profile"
+          },
+          "total_earned": {
+            "type": "number",
+            "format": "float",
+            "description": "Sum of ETH collected by the profile"
+          },
+          "organizations": {
+            "type": "object",
+            "description": "Dictionary containing profiles that this user works with"
+          }
+        }
+      },
+      "Bounty": {
+        "type": "object",
+        "description": "A Gitcoin bounty representing a funding opportunity for open source work",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL for this specific bounty",
+            "example": "https://gitcoin.co/api/v0.1/bounties/9/"
+          },
+          "created_on": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Creation timestamp in ISO 8601 format"
+          },
+          "modified_on": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Last modified timestamp in ISO 8601 format"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the bounty"
+          },
+          "web3_created": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Creation timestamp for the on-chain transaction holding this bounty"
+          },
+          "value_in_token": {
+            "type": "string",
+            "description": "Amount of tokens rewarded for the bounty"
+          },
+          "token_name": {
+            "type": "string",
+            "description": "Type of token reward (e.g., ETH, GIT)",
+            "example": "ETH"
+          },
+          "token_address": {
+            "$ref": "#/components/schemas/EthereumAddress",
+            "description": "Address where the tokens are located"
+          },
+          "bounty_type": {
+            "type": "string",
+            "description": "Type of bounty (e.g., Bug, Feature, Security)"
+          },
+          "project_length": {
+            "type": "string",
+            "description": "Relative length of project (e.g., Hours, Days, Weeks, Months)"
+          },
+          "experience_level": {
+            "type": "string",
+            "description": "Recommended experience level"
+          },
+          "github_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL on GitHub where the bounty description can be found"
+          },
+          "github_org_name": {
+            "type": "string",
+            "description": "GitHub organization name"
+          },
+          "github_repo_name": {
+            "type": "string",
+            "description": "GitHub repository name"
+          },
+          "github_issue_number": {
+            "type": "string",
+            "description": "GitHub issue number"
+          },
+          "keywords": {
+            "type": "string",
+            "description": "Comma-delimited list of keywords"
+          },
+          "current_bounty": {
+            "type": "boolean",
+            "description": "Whether this bounty is the most current revision"
+          },
+          "expires_date": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date before which the bounty must be completed"
+          },
+          "value_in_eth": {
+            "type": "number",
+            "description": "Value of the bounty in Ethereum (wei)"
+          },
+          "value_in_usdt": {
+            "type": "number",
+            "format": "float",
+            "description": "Approximation of value in USD at bounty web3_created timestamp"
+          },
+          "value_in_usdt_now": {
+            "type": "number",
+            "format": "float",
+            "description": "Approximation of current value in USD"
+          },
+          "now": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Current date_time on the server"
+          },
+          "action_urls": {
+            "type": "object",
+            "description": "A list of URLs where a user can take action against the bounty"
+          },
+          "paid": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of users who have been paid from the bounty"
+          },
+          "is_open": {
+            "type": "boolean",
+            "description": "True if the bounty has not been completed"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["open", "started", "submitted", "done", "expired"],
+            "description": "Current status of the bounty"
+          },
+          "bounty_owner_address": {
+            "$ref": "#/components/schemas/EthereumAddress",
+            "description": "Ethereum address of the person who owns the bounty"
+          },
+          "bounty_owner_email": {
+            "type": "string",
+            "format": "email",
+            "description": "Email of the bounty owner"
+          },
+          "bounty_owner_github_username": {
+            "type": "string",
+            "description": "GitHub username of the bounty owner"
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Miscellaneous metadata about the bounty and the creator"
+          },
+          "fulfiller_address": {
+            "$ref": "#/components/schemas/EthereumAddress",
+            "description": "Ethereum address of the person who fulfilled the bounty"
+          },
+          "fulfiller_email": {
+            "type": "string",
+            "format": "email",
+            "nullable": true,
+            "description": "Email of the person fulfilling the bounty"
+          },
+          "fulfiller_github_username": {
+            "type": "string",
+            "nullable": true,
+            "description": "GitHub username of the fulfiller"
+          },
+          "fulfiller_metadata": {
+            "type": "object",
+            "description": "githubUsername and notificationEmail for the fulfiller"
+          }
+        }
+      },
+      "Grant": {
+        "type": "object",
+        "description": "A Gitcoin grant representing a public goods funding project",
+        "properties": {
+          "active": {
+            "type": "boolean",
+            "description": "Whether or not the Grant is active"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the Grant"
+          },
+          "slug": {
+            "type": "string",
+            "description": "Slug for the Grant populated from title"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the Grant"
+          },
+          "reference_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Associated reference URL of the Grant"
+          },
+          "logo": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL of the Grant logo image"
+          },
+          "admin_address": {
+            "$ref": "#/components/schemas/EthereumAddress",
+            "description": "Wallet address of the Grant Admin where subscription funds will be sent"
+          },
+          "amount_received": {
+            "type": "number",
+            "format": "float",
+            "description": "Total amount of contributions received by the Grant in USDT/DAI"
+          },
+          "token_address": {
+            "$ref": "#/components/schemas/EthereumAddress",
+            "description": "Address of the token to be used with the Grant"
+          },
+          "token_symbol": {
+            "type": "string",
+            "description": "Type of token to be used with the Grant"
+          },
+          "contract_address": {
+            "$ref": "#/components/schemas/EthereumAddress",
+            "description": "Contract address of the Grant"
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Miscellaneous metadata about the Grant"
+          },
+          "network": {
+            "type": "string",
+            "description": "Network in which the Grant contract resides"
+          },
+          "required_gas_price": {
+            "type": "number",
+            "format": "float",
+            "description": "Required gas price for the Grant"
+          },
+          "admin_profile": {
+            "$ref": "#/components/schemas/Profile",
+            "description": "Grant Admin's profile"
+          },
+          "team_members": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Profile"
+            },
+            "description": "Array of team members contributing to this Grant"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Bounties",
+      "description": "Operations related to Gitcoin bounties"
+    },
+    {
+      "name": "Grants",
+      "description": "Operations related to Gitcoin grants"
+    }
+  ],
+  "externalDocs": {
+    "description": "Gitcoin API Documentation",
+    "url": "https://docs.gitcoin.co/mk_rest_api/"
+  }
+}

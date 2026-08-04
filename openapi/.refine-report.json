@@ -1,0 +1,24 @@
+{
+  "provider": "gitcoin",
+  "sources": [
+    "gitcoin-bounties-api-openapi.yml",
+    "gitcoin-contributors-api-openapi.yml",
+    "gitcoin-grants-api-openapi.yml",
+    "gitcoin-model-analysis-api-openapi.yml",
+    "gitcoin-rounds-api-openapi.yml",
+    "gitcoin-stamp-api-api-openapi.yml"
+  ],
+  "outputs": [
+    "gitcoin-bounties-api-openapi.yml",
+    "gitcoin-contributors-api-openapi.yml",
+    "gitcoin-grants-api-openapi.yml",
+    "gitcoin-model-analysis-api-openapi.yml",
+    "gitcoin-rounds-api-openapi.yml",
+    "gitcoin-stamp-api-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
