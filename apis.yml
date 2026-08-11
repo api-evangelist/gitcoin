@@ -340,6 +340,8 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/finops/finops.yml
 common:
+- type: IssueTracker
+  url: https://github.com/gitcoinco/grants-stack-indexer/issues
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/gitcoin/overview
 - type: AgenticAccess
