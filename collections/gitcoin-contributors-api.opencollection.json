@@ -1,0 +1,105 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Gitcoin Core Bounties Contributors API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Contributors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get All Contributor Addresses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gitcoin.co/api/v0.1/grants/v1/api/export_addresses/all.json"
+          },
+          "docs": "Returns a list of all Ethereum addresses that have ever funded a Gitcoin Grant."
+        },
+        {
+          "info": {
+            "name": "Get Contributors by Round",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gitcoin.co/api/v0.1/grants/v1/api/export_addresses/:roundId.json",
+            "params": [
+              {
+                "name": "roundId",
+                "value": "",
+                "type": "path",
+                "description": "The round identifier in format 'roundX' where X is the round number (1-10)"
+              }
+            ]
+          },
+          "docs": "Returns a list of contributor Ethereum addresses for a specific Gitcoin Grants Round (rounds 1-10 supported)."
+        },
+        {
+          "info": {
+            "name": "Get Contributors by Grant",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gitcoin.co/api/v0.1/grants/v1/api/export_addresses/:grantId.json",
+            "params": [
+              {
+                "name": "grantId",
+                "value": "",
+                "type": "path",
+                "description": "The grant identifier in format 'grantX' where X is the grant ID"
+              }
+            ]
+          },
+          "docs": "Returns a list of contributor addresses for a specific grant. Requires authentication as a team member of the grant."
+        },
+        {
+          "info": {
+            "name": "Get Contributors by Grant and Round",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gitcoin.co/api/v0.1/grants/v1/api/export_addresses/:grantRoundId.json",
+            "params": [
+              {
+                "name": "grantRoundId",
+                "value": "",
+                "type": "path",
+                "description": "The grant-round identifier in format 'grantX_roundY' where X is the grant ID and Y is the round number"
+              }
+            ]
+          },
+          "docs": "Returns a list of contributor addresses for a specific grant at a specific round. Requires authentication as a team member of the grant."
+        },
+        {
+          "info": {
+            "name": "Get Contributor Social Info by Grant and Round",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gitcoin.co/api/v0.1/grants/v1/api/export_info/:grantRoundId.json",
+            "params": [
+              {
+                "name": "grantRoundId",
+                "value": "",
+                "type": "path",
+                "description": "The grant-round identifier in format 'grantX_roundY' where X is the grant ID and Y is the round number"
+              }
+            ]
+          },
+          "docs": "Returns contributor social info (handle, picture, anonymized, comment) for a specific grant at a specific round. Requires authentication as a team member of the grant."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

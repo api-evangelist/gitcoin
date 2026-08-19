@@ -1,0 +1,11 @@
+[
+  {
+    "repo": "gitcoin",
+    "captured_at": "2026-08-17T123547",
+    "source_url": "https://gitcoin.co/",
+    "source_type": "Website",
+    "file": "gitcoin-2026-08-17T123547.png",
+    "bytes": 769166,
+    "capture": "playwright-local"
+  }
+]

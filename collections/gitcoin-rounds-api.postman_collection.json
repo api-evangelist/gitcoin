@@ -1,0 +1,350 @@
+{
+  "item": [
+    {
+      "id": "600692ad-92bd-4fcc-8a54-3ba6a8e7b8a4",
+      "name": "Rounds",
+      "description": {
+        "content": "Operations related to Gitcoin Grants funding rounds",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "24386c93-00da-48ee-84b0-0c2ecf6bec0c",
+          "name": "Get Contributors by Round",
+          "request": {
+            "name": "Get Contributors by Round",
+            "description": {
+              "content": "Returns a list of contributor Ethereum addresses for a specific Gitcoin Grants Round (rounds 1-10 supported).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "grants",
+                "v1",
+                "api",
+                "export_addresses",
+                "{{roundId}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "85d8450b-b459-4ac4-bfc1-e6884ad8e3a1",
+              "name": "A list of contributor addresses for the specified round",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "grants",
+                    "v1",
+                    "api",
+                    "export_addresses",
+                    "{{roundId}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"0x636f3093258412b96c43bef3663f1b853253ec59\",\n  \"0x636f3093258412b96c43bef3663f1b853253ec59\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bdaf48d7-5f65-4ce7-ba0d-3c522b3d264f",
+          "name": "Get Contributors by Grant and Round",
+          "request": {
+            "name": "Get Contributors by Grant and Round",
+            "description": {
+              "content": "Returns a list of contributor addresses for a specific grant at a specific round. Requires authentication as a team member of the grant.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "grants",
+                "v1",
+                "api",
+                "export_addresses",
+                "{{grantRoundId}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "92cd69dc-9c8d-4131-8c19-4de59ba683bb",
+              "name": "A list of contributor addresses for the specified grant at a specific round",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "grants",
+                    "v1",
+                    "api",
+                    "export_addresses",
+                    "{{grantRoundId}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"0x636f3093258412b96c43bef3663f1b853253ec59\",\n  \"0x636f3093258412b96c43bef3663f1b853253ec59\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d03821a-3e58-4014-bfff-e5479349825c",
+              "name": "Unauthorized - must be authenticated as a team member",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "grants",
+                    "v1",
+                    "api",
+                    "export_addresses",
+                    "{{grantRoundId}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0770c87f-3dc0-4ae0-b387-f996b3ebc4d3",
+          "name": "Get Contributor Social Info by Grant and Round",
+          "request": {
+            "name": "Get Contributor Social Info by Grant and Round",
+            "description": {
+              "content": "Returns contributor social info (handle, picture, anonymized, comment) for a specific grant at a specific round. Requires authentication as a team member of the grant.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "grants",
+                "v1",
+                "api",
+                "export_info",
+                "{{grantRoundId}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "f731c084-d5aa-49bb-b3a8-8f640445eaa0",
+              "name": "Contributor social information for the specified grant at a specific round",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "grants",
+                    "v1",
+                    "api",
+                    "export_info",
+                    "{{grantRoundId}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"handle\": \"string\",\n    \"picture\": \"https://nBx.wqb7m8EjKf+fwVgkrOy11qs6z9h1l\",\n    \"anonymized\": false,\n    \"comment\": \"string\"\n  },\n  {\n    \"handle\": \"string\",\n    \"picture\": \"https://dhVVLshcikOhBjWXHFoU.efxALOoAysJaHrN6WFh0hzTWioEj3b6,x.S,tF3qMzNWxm.ClUD5U4tJiX9+LfEhqUPCKTzajDMBM.D\",\n    \"anonymized\": true,\n    \"comment\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5ef7fbba-95c2-46af-afa1-535cc957e34f",
+              "name": "Unauthorized - must be authenticated as a team member",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "grants",
+                    "v1",
+                    "api",
+                    "export_info",
+                    "{{grantRoundId}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gitcoin.co/api/v0.1",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The round identifier in format 'roundX' where X is the round number (1-10)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "roundId"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The grant-round identifier in format 'grantX_roundY' where X is the grant ID and Y is the round number",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "grantRoundId"
+    }
+  ],
+  "info": {
+    "_postman_id": "74857ae6-f90f-4a08-b5db-c1317489478d",
+    "name": "Gitcoin Core Bounties Rounds API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Read-only REST API providing access to Gitcoin bounties and grants data. Supports filtering by experience level, project length, bounty type, owner address, open status, and GitHub URL. Returns JSON-formatted data including funding amounts, contributor addresses, token types, and project metadata.\n\nContact Support:\n Name: Gitcoin Support",
+      "type": "text/plain"
+    }
+  }
+}

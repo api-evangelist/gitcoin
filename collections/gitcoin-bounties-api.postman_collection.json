@@ -1,0 +1,206 @@
+{
+  "item": [
+    {
+      "id": "dee9c589-dcd3-49fa-b523-f3c0ba6b64b6",
+      "name": "Bounties",
+      "description": {
+        "content": "Operations related to Gitcoin bounties",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9db424f3-df7c-4993-9b6f-d7cf1b1d3b03",
+          "name": "List Bounties",
+          "request": {
+            "name": "List Bounties",
+            "description": {
+              "content": "Returns a list of bounties with their current status. Supports filtering by experience level, project length, bounty type, owner address, open status, and GitHub URL.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bounties",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "experience_level",
+                  "value": "<string>",
+                  "description": "Filter by experience level (e.g., Beginner, Intermediate, Advanced)"
+                },
+                {
+                  "disabled": false,
+                  "key": "project_length",
+                  "value": "<string>",
+                  "description": "Filter by project length (e.g., Hours, Days, Weeks, Months)"
+                },
+                {
+                  "disabled": false,
+                  "key": "bounty_type",
+                  "value": "<string>",
+                  "description": "Filter by bounty type (e.g., Bug, Feature, Security)"
+                },
+                {
+                  "disabled": false,
+                  "key": "bounty_owner_address",
+                  "value": "<string>",
+                  "description": "Filter by Ethereum address of the bounty owner"
+                },
+                {
+                  "disabled": false,
+                  "key": "is_open",
+                  "value": "<boolean>",
+                  "description": "Filter by whether the bounty is open"
+                },
+                {
+                  "disabled": false,
+                  "key": "github_url",
+                  "value": "<string>",
+                  "description": "Filter by GitHub URL. Can be a comma-separated list of GitHub URLs."
+                },
+                {
+                  "disabled": false,
+                  "key": "pk",
+                  "value": "<integer>",
+                  "description": "Return a single bounty by its primary key ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by",
+                  "value": "<string>",
+                  "description": "Order results by a field key. Prefix with '-' for descending order (e.g., -expires_date)"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Limit number of results returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Offset for pagination"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7ea7c060-16fb-4f5b-981d-38f44fa08ba4",
+              "name": "A list of bounties",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bounties",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "experience_level",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project_length",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bounty_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bounty_owner_address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "is_open",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "github_url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pk",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"url\": \"https://gitcoin.co/api/v0.1/bounties/9/\",\n    \"created_on\": \"2010-07-15T04:05:05.509Z\",\n    \"modified_on\": \"1999-08-07T09:47:13.342Z\",\n    \"title\": \"string\",\n    \"web3_created\": \"1982-07-04T00:13:43.790Z\",\n    \"value_in_token\": \"string\",\n    \"token_name\": \"ETH\",\n    \"token_address\": \"0x636f3093258412b96c43bef3663f1b853253ec59\",\n    \"bounty_type\": \"string\",\n    \"project_length\": \"string\",\n    \"experience_level\": \"string\",\n    \"github_url\": \"https://NiLtuMnnBYlBM.cjirrhv4lqt5YAf\",\n    \"github_org_name\": \"string\",\n    \"github_repo_name\": \"string\",\n    \"github_issue_number\": \"string\",\n    \"keywords\": \"string\",\n    \"current_bounty\": false,\n    \"expires_date\": \"1975-05-19T11:39:02.791Z\",\n    \"value_in_eth\": 613.9375887032683,\n    \"value_in_usdt\": 9924.982891769272,\n    \"value_in_usdt_now\": 2765.0624176226547,\n    \"now\": \"1983-09-02T23:39:02.430Z\",\n    \"action_urls\": {},\n    \"paid\": [\n      \"string\",\n      \"string\"\n    ],\n    \"is_open\": false,\n    \"status\": \"submitted\",\n    \"bounty_owner_address\": \"0x636f3093258412b96c43bef3663f1b853253ec59\",\n    \"bounty_owner_email\": \"o0tNYRZSJS06@RsTIFTqOJZuEInDPT.elr\",\n    \"bounty_owner_github_username\": \"string\",\n    \"metadata\": {},\n    \"fulfiller_address\": \"0x636f3093258412b96c43bef3663f1b853253ec59\",\n    \"fulfiller_email\": \"cqUm@EcJEyffjGPAmE.mg\",\n    \"fulfiller_github_username\": \"string\",\n    \"fulfiller_metadata\": {}\n  },\n  {\n    \"url\": \"https://gitcoin.co/api/v0.1/bounties/9/\",\n    \"created_on\": \"1957-09-13T02:18:22.094Z\",\n    \"modified_on\": \"1951-03-09T04:50:44.196Z\",\n    \"title\": \"string\",\n    \"web3_created\": \"1994-02-04T06:20:17.576Z\",\n    \"value_in_token\": \"string\",\n    \"token_name\": \"ETH\",\n    \"token_address\": \"0x636f3093258412b96c43bef3663f1b853253ec59\",\n    \"bounty_type\": \"string\",\n    \"project_length\": \"string\",\n    \"experience_level\": \"string\",\n    \"github_url\": \"http://jPgNvkZyHzdmRkO.fcdekrfuPjiujU,77rdhXhg0\",\n    \"github_org_name\": \"string\",\n    \"github_repo_name\": \"string\",\n    \"github_issue_number\": \"string\",\n    \"keywords\": \"string\",\n    \"current_bounty\": true,\n    \"expires_date\": \"1954-02-24T23:37:04.133Z\",\n    \"value_in_eth\": 7929.055227002709,\n    \"value_in_usdt\": 6050.773660474431,\n    \"value_in_usdt_now\": 8441.774327051906,\n    \"now\": \"1967-12-05T15:31:33.522Z\",\n    \"action_urls\": {},\n    \"paid\": [\n      \"string\",\n      \"string\"\n    ],\n    \"is_open\": false,\n    \"status\": \"open\",\n    \"bounty_owner_address\": \"0x636f3093258412b96c43bef3663f1b853253ec59\",\n    \"bounty_owner_email\": \"w-OUF@bJMzlaXmEciD.wa\",\n    \"bounty_owner_github_username\": \"string\",\n    \"metadata\": {},\n    \"fulfiller_address\": \"0x636f3093258412b96c43bef3663f1b853253ec59\",\n    \"fulfiller_email\": \"YL3o9@KFUGijQisHoKVeZ.bjs\",\n    \"fulfiller_github_username\": \"string\",\n    \"fulfiller_metadata\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gitcoin.co/api/v0.1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c07ee62d-5576-42ea-a0a4-443405924b54",
+    "name": "Gitcoin Core Bounties API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Read-only REST API providing access to Gitcoin bounties and grants data. Supports filtering by experience level, project length, bounty type, owner address, open status, and GitHub URL. Returns JSON-formatted data including funding amounts, contributor addresses, token types, and project metadata.\n\nContact Support:\n Name: Gitcoin Support",
+      "type": "text/plain"
+    }
+  }
+}

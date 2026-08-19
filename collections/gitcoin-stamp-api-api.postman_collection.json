@@ -1,0 +1,946 @@
+{
+  "item": [
+    {
+      "id": "625a83f4-b5a8-47b9-8e8c-4edb5a80a02b",
+      "name": "Stamp API",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f3440163-8deb-4b6a-9d52-4fcc1c79fd66",
+          "name": "Retrieve Stamp-based unique humanity score for a specified address",
+          "request": {
+            "name": "Retrieve Stamp-based unique humanity score for a specified address",
+            "description": {
+              "content": "This is the primary endpoint that integrators should use. This endpoint will return the latest score and Stamp data for a single address.<br /><br /><a href=\"https://docs.passport.xyz/building-with-passport/passport-api-v2/api-reference\" target=\"_blank\">Docs</a>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "stamps",
+                ":scorer_id",
+                "score",
+                ":address"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "scorer_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "78bcd47f-53cd-4e24-a00c-17729162f990",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "stamps",
+                    ":scorer_id",
+                    "score",
+                    ":address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scorer_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": \"string\",\n  \"score\": 9497.285002452822,\n  \"passing_score\": true,\n  \"last_score_timestamp\": \"string\",\n  \"expiration_timestamp\": \"string\",\n  \"threshold\": 572.726225402298,\n  \"error\": \"string\",\n  \"stamps\": {\n    \"key_0\": {\n      \"score\": \"string\",\n      \"dedup\": true,\n      \"expiration_date\": \"string\",\n      \"source_wallet\": \"string\"\n    },\n    \"key_1\": {\n      \"score\": \"string\",\n      \"dedup\": true,\n      \"expiration_date\": \"string\",\n      \"source_wallet\": \"string\"\n    },\n    \"key_2\": {\n      \"score\": \"string\",\n      \"dedup\": false,\n      \"expiration_date\": \"string\",\n      \"source_wallet\": \"string\"\n    },\n    \"key_3\": {\n      \"score\": \"string\",\n      \"dedup\": true,\n      \"expiration_date\": \"string\",\n      \"source_wallet\": \"string\"\n    }\n  },\n  \"points_data\": {\n    \"total_points\": 1663,\n    \"is_eligible\": false,\n    \"multiplier\": 2115,\n    \"breakdown\": {\n      \"key_0\": 7499\n    }\n  },\n  \"possible_points_data\": {\n    \"total_points\": 500,\n    \"is_eligible\": true,\n    \"multiplier\": 865,\n    \"breakdown\": {\n      \"key_0\": 5828\n    }\n  },\n  \"linked_score\": {\n    \"address\": \"string\",\n    \"score\": 8180.025191397157,\n    \"passing_score\": false,\n    \"last_score_timestamp\": \"string\",\n    \"expiration_timestamp\": \"string\",\n    \"threshold\": 7938.339951514241,\n    \"stamps\": {\n      \"key_0\": {\n        \"score\": \"string\",\n        \"dedup\": false,\n        \"expiration_date\": \"string\",\n        \"source_wallet\": \"string\"\n      },\n      \"key_1\": {\n        \"score\": \"string\",\n        \"dedup\": true,\n        \"expiration_date\": \"string\",\n        \"source_wallet\": \"string\"\n      }\n    },\n    \"wallet_stamps\": {\n      \"key_0\": {\n        \"key_0\": {\n          \"score\": \"string\",\n          \"dedup\": false,\n          \"expiration_date\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source_wallet\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"key_1\": {\n        \"key_0\": {\n          \"score\": \"string\",\n          \"dedup\": false,\n          \"expiration_date\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source_wallet\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"key_1\": {\n          \"score\": \"string\",\n          \"dedup\": false,\n          \"expiration_date\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source_wallet\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c7c6b877-eace-4d01-afb6-46550c3747e9",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "stamps",
+                    ":scorer_id",
+                    "score",
+                    ":address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scorer_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a0920ab8-041c-43bd-a479-777eceba0756",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "stamps",
+                    ":scorer_id",
+                    "score",
+                    ":address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scorer_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4ebd8d62-130a-4d56-9583-6f96070c6961",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "stamps",
+                    ":scorer_id",
+                    "score",
+                    ":address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scorer_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c7a020e-6713-411a-9007-c7b5ef3d8b7a",
+          "name": "Retrieve historical Stamp-based unique humanity score for a specified address",
+          "request": {
+            "name": "Retrieve historical Stamp-based unique humanity score for a specified address",
+            "description": {
+              "content": "This endpoint will return the historical score and Stamp data for a single address at a specified time. **Note:** To access this endpoint, you must submit your use case and be approved by the Passport team. To do so, please fill out the following form, making sure to provide a detailed description of your use case. The Passport team typically reviews and responds to form responses within 48 hours.<br /><br />[Request access](https://forms.gle/4GyicBfhtHW29eEu8)<br /><br /><a href=\"https://docs.passport.xyz/building-with-passport/passport-api-v2/api-reference\" target=\"_blank\">Docs</a>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "stamps",
+                ":scorer_id",
+                "score",
+                ":address",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "created_at",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "scorer_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "4f7f9ba0-0643-465a-b177-3b223d1117eb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "stamps",
+                    ":scorer_id",
+                    "score",
+                    ":address",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "created_at",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scorer_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": \"string\",\n  \"score\": 9497.285002452822,\n  \"passing_score\": true,\n  \"last_score_timestamp\": \"string\",\n  \"expiration_timestamp\": \"string\",\n  \"threshold\": 572.726225402298,\n  \"error\": \"string\",\n  \"stamps\": {\n    \"key_0\": {\n      \"score\": \"string\",\n      \"dedup\": true,\n      \"expiration_date\": \"string\",\n      \"source_wallet\": \"string\"\n    },\n    \"key_1\": {\n      \"score\": \"string\",\n      \"dedup\": true,\n      \"expiration_date\": \"string\",\n      \"source_wallet\": \"string\"\n    },\n    \"key_2\": {\n      \"score\": \"string\",\n      \"dedup\": false,\n      \"expiration_date\": \"string\",\n      \"source_wallet\": \"string\"\n    },\n    \"key_3\": {\n      \"score\": \"string\",\n      \"dedup\": true,\n      \"expiration_date\": \"string\",\n      \"source_wallet\": \"string\"\n    }\n  },\n  \"points_data\": {\n    \"total_points\": 1663,\n    \"is_eligible\": false,\n    \"multiplier\": 2115,\n    \"breakdown\": {\n      \"key_0\": 7499\n    }\n  },\n  \"possible_points_data\": {\n    \"total_points\": 500,\n    \"is_eligible\": true,\n    \"multiplier\": 865,\n    \"breakdown\": {\n      \"key_0\": 5828\n    }\n  },\n  \"linked_score\": {\n    \"address\": \"string\",\n    \"score\": 8180.025191397157,\n    \"passing_score\": false,\n    \"last_score_timestamp\": \"string\",\n    \"expiration_timestamp\": \"string\",\n    \"threshold\": 7938.339951514241,\n    \"stamps\": {\n      \"key_0\": {\n        \"score\": \"string\",\n        \"dedup\": false,\n        \"expiration_date\": \"string\",\n        \"source_wallet\": \"string\"\n      },\n      \"key_1\": {\n        \"score\": \"string\",\n        \"dedup\": true,\n        \"expiration_date\": \"string\",\n        \"source_wallet\": \"string\"\n      }\n    },\n    \"wallet_stamps\": {\n      \"key_0\": {\n        \"key_0\": {\n          \"score\": \"string\",\n          \"dedup\": false,\n          \"expiration_date\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source_wallet\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"key_1\": {\n        \"key_0\": {\n          \"score\": \"string\",\n          \"dedup\": false,\n          \"expiration_date\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source_wallet\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"key_1\": {\n          \"score\": \"string\",\n          \"dedup\": false,\n          \"expiration_date\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"source_wallet\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0cd105d6-7297-4017-976b-6d83ed07f3cf",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "stamps",
+                    ":scorer_id",
+                    "score",
+                    ":address",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "created_at",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scorer_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "afaedbb2-9a5d-4aea-a6e6-19a2ff663d9c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "stamps",
+                    ":scorer_id",
+                    "score",
+                    ":address",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "created_at",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scorer_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "149f6272-803a-451e-a033-21e7ae7b64d2",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "stamps",
+                    ":scorer_id",
+                    "score",
+                    ":address",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "created_at",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scorer_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1bd27cdc-c2d8-4b60-bbf2-57998f940470",
+          "name": "Receive all Stamps available in Passport",
+          "request": {
+            "name": "Receive all Stamps available in Passport",
+            "description": {
+              "content": "<a href=\"https://docs.passport.xyz/building-with-passport/passport-api-v2/api-reference\" target=\"_blank\">Docs</a>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "stamps",
+                "metadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "06454680-7ff7-4e8c-82aa-cbc1046ff3ea",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "stamps",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"icon\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"connectMessage\": \"string\",\n    \"groups\": [\n      {\n        \"name\": \"string\",\n        \"stamps\": [\n          {\n            \"name\": \"string\",\n            \"description\": \"string\",\n            \"hash\": \"string\"\n          },\n          {\n            \"name\": \"string\",\n            \"description\": \"string\",\n            \"hash\": \"string\"\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"stamps\": [\n          {\n            \"name\": \"string\",\n            \"description\": \"string\",\n            \"hash\": \"string\"\n          },\n          {\n            \"name\": \"string\",\n            \"description\": \"string\",\n            \"hash\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  {\n    \"id\": \"string\",\n    \"icon\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"connectMessage\": \"string\",\n    \"groups\": [\n      {\n        \"name\": \"string\",\n        \"stamps\": [\n          {\n            \"name\": \"string\",\n            \"description\": \"string\",\n            \"hash\": \"string\"\n          },\n          {\n            \"name\": \"string\",\n            \"description\": \"string\",\n            \"hash\": \"string\"\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"stamps\": [\n          {\n            \"name\": \"string\",\n            \"description\": \"string\",\n            \"hash\": \"string\"\n          },\n          {\n            \"name\": \"string\",\n            \"description\": \"string\",\n            \"hash\": \"string\"\n          }\n        ]\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c654a9f-9e3c-4228-8cb9-11df83e744a3",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "stamps",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a71f5adf-5584-4b55-8531-6cf40b1ac0f8",
+          "name": "Retrieve the Stamps that a specified account has verified.",
+          "request": {
+            "name": "Retrieve the Stamps that a specified account has verified.",
+            "description": {
+              "content": "Use this endpoint to retrieve the Stamps verified by a specified address.<br /><br />This endpoint will return a `CursorPaginatedStampCredentialResponse`.<br /><br /><a href=\"https://docs.passport.xyz/building-with-passport/passport-api-v2/api-reference\" target=\"_blank\">Docs</a>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "stamps",
+                ":address"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "1000"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_metadata",
+                  "value": "false"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "7cfb72bc-0d21-405f-81b6-5085fbacd754",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "stamps",
+                    ":address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": ""
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "include_metadata",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"next\": \"string\",\n  \"prev\": \"string\",\n  \"items\": [\n    {\n      \"version\": \"string\",\n      \"credential\": {},\n      \"metadata\": {\n        \"group\": \"string\",\n        \"platform\": {\n          \"id\": \"string\",\n          \"icon\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"connectMessage\": \"string\"\n        },\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"hash\": \"string\"\n      }\n    },\n    {\n      \"version\": \"string\",\n      \"credential\": {},\n      \"metadata\": {\n        \"group\": \"string\",\n        \"platform\": {\n          \"id\": \"string\",\n          \"icon\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"connectMessage\": \"string\"\n        },\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"hash\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "67bb64aa-c387-4977-8cec-24419f958d7c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "stamps",
+                    ":address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": ""
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "include_metadata",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7ec7739e-8e25-4315-aede-5bcc00283259",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "stamps",
+                    ":address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": ""
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "include_metadata",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gitcoin.co/api/v0.1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "480a4523-610b-4a39-84b6-fc9853433651",
+    "name": "Gitcoin Core Bounties Stamp API API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Read-only REST API providing access to Gitcoin bounties and grants data. Supports filtering by experience level, project length, bounty type, owner address, open status, and GitHub URL. Returns JSON-formatted data including funding amounts, contributor addresses, token types, and project metadata.\n\nContact Support:\n Name: Gitcoin Support",
+      "type": "text/plain"
+    }
+  }
+}

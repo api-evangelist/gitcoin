@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Gitcoin Core Bounties Stamp API API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Stamp API",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Stamp-based unique humanity score for a specified address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gitcoin.co/api/v0.1/v2/stamps/:scorer_id/score/:address",
+            "params": [
+              {
+                "name": "scorer_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "This is the primary endpoint that integrators should use. This endpoint will return the latest score and Stamp data for a single address.<br /><br /><a href=\"https://docs.passport.xyz/building-with-passport/passport-api-v2/api-reference\" target=\"_blank\">Docs</a>"
+        },
+        {
+          "info": {
+            "name": "Retrieve historical Stamp-based unique humanity score for a specified address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gitcoin.co/api/v0.1/v2/stamps/:scorer_id/score/:address/history",
+            "params": [
+              {
+                "name": "scorer_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "created_at",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "This endpoint will return the historical score and Stamp data for a single address at a specified time. **Note:** To access this endpoint, you must submit your use case and be approved by the Passport team. To do so, please fill out the following form, making sure to provide a detailed description of your use case. The Passport team typically reviews and responds to form responses within 48 hours.<br /><br />[Request access](https://forms.gle/4GyicBfhtHW29eEu8)<br /><br /><a href=\"https://docs.p"
+        },
+        {
+          "info": {
+            "name": "Receive all Stamps available in Passport",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gitcoin.co/api/v0.1/v2/stamps/metadata"
+          },
+          "docs": "<a href=\"https://docs.passport.xyz/building-with-passport/passport-api-v2/api-reference\" target=\"_blank\">Docs</a>"
+        },
+        {
+          "info": {
+            "name": "Retrieve the Stamps that a specified account has verified.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gitcoin.co/api/v0.1/v2/stamps/:address",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_metadata",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Use this endpoint to retrieve the Stamps verified by a specified address.<br /><br />This endpoint will return a `CursorPaginatedStampCredentialResponse`.<br /><br /><a href=\"https://docs.passport.xyz/building-with-passport/passport-api-v2/api-reference\" target=\"_blank\">Docs</a>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Gitcoin Core Bounties API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bounties",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Bounties",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gitcoin.co/api/v0.1/bounties/",
+            "params": [
+              {
+                "name": "experience_level",
+                "value": "",
+                "type": "query",
+                "description": "Filter by experience level (e.g., Beginner, Intermediate, Advanced)"
+              },
+              {
+                "name": "project_length",
+                "value": "",
+                "type": "query",
+                "description": "Filter by project length (e.g., Hours, Days, Weeks, Months)"
+              },
+              {
+                "name": "bounty_type",
+                "value": "",
+                "type": "query",
+                "description": "Filter by bounty type (e.g., Bug, Feature, Security)"
+              },
+              {
+                "name": "bounty_owner_address",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Ethereum address of the bounty owner"
+              },
+              {
+                "name": "is_open",
+                "value": "",
+                "type": "query",
+                "description": "Filter by whether the bounty is open"
+              },
+              {
+                "name": "github_url",
+                "value": "",
+                "type": "query",
+                "description": "Filter by GitHub URL. Can be a comma-separated list of GitHub URLs."
+              },
+              {
+                "name": "pk",
+                "value": "",
+                "type": "query",
+                "description": "Return a single bounty by its primary key ID"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Order results by a field key. Prefix with '-' for descending order (e.g., -expires_date)"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit number of results returned"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset for pagination"
+              }
+            ]
+          },
+          "docs": "Returns a list of bounties with their current status. Supports filtering by experience level, project length, bounty type, owner address, open status, and GitHub URL."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
