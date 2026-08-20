@@ -26,6 +26,15 @@ tags:
 - Web3
 - Verifiable Credentials
 - Identity
+- Open-Source
+tags_raw:
+- Public Goods
+- Grants
+- Bounties
+- Quadratic Funding
+- Web3
+- Verifiable Credentials
+- Identity
 - Open Source
 created: '2026-06-14'
 modified: '2026-06-14'
@@ -41,6 +50,13 @@ apis:
   humanURL: https://grants-stack-indexer-v2.gitcoin.co/graphiql
   baseURL: https://grants-stack-indexer-v2.gitcoin.co/graphql
   tags:
+  - GraphQL
+  - Grants Stack
+  - Allo Protocol
+  - Rounds
+  - Project
+  - Onchain
+  tags_raw:
   - GraphQL
   - Grants Stack
   - Allo Protocol
