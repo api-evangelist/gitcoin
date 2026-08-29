@@ -4,6 +4,19 @@ description: Gitcoin is a public goods funding platform that enables communities
   funding, direct grants, and bounties. The platform provides REST APIs for querying
   grants, bounties, funding rounds, and project metadata, as well as the Gitcoin Passport
   Stamps API for verifiable credential scoring and identity verification.
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: true
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - pricing
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
