@@ -1,9 +1,8 @@
 name: Gitcoin
-description: Gitcoin is a public goods funding platform that enables communities to
-  fund open-source software, research, and other digital public goods through quadratic
-  funding, direct grants, and bounties. The platform provides REST APIs for querying
-  grants, bounties, funding rounds, and project metadata, as well as the Gitcoin Passport
-  Stamps API for verifiable credential scoring and identity verification.
+description: Gitcoin is a public goods funding platform that enables communities to fund open-source software,
+  research, and other digital public goods through quadratic funding, direct grants, and bounties. The
+  platform provides REST APIs for querying grants, bounties, funding rounds, and project metadata, as
+  well as the Gitcoin Passport Stamps API for verifiable credential scoring and identity verification.
 deliveryModel:
   model: unknown
   open_source: unknown
@@ -51,15 +50,14 @@ tags_raw:
 - Identity
 - Open Source
 created: '2026-06-14'
-modified: '2026-06-14'
+modified: '2026-09-16'
 url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/apis.yml
 specificationVersion: '0.23'
 apis:
 - name: Gitcoin Grants Stack Indexer API
-  description: >-
-    GraphQL API for querying indexed on-chain data from the Gitcoin Grants Stack and Allo Protocol. Provides
-    access to funding rounds, projects, applications, contributions, and quadratic funding match calculations
-    across supported EVM chains. Supports the GraphiQL playground for schema exploration.
+  description: GraphQL API for querying indexed on-chain data from the Gitcoin Grants Stack and Allo Protocol.
+    Provides access to funding rounds, projects, applications, contributions, and quadratic funding match
+    calculations across supported EVM chains. Supports the GraphiQL playground for schema exploration.
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://grants-stack-indexer-v2.gitcoin.co/graphiql
   baseURL: https://grants-stack-indexer-v2.gitcoin.co/graphql
@@ -89,8 +87,7 @@ apis:
   - type: Plans
     url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/plans/plans.yml
   - type: RateLimits
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/rate-limits/rate-limits.yml
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/rate-limits/rate-limits.yml
   - url: graphql/gitcoin-schema.graphql
     type: GraphQLSchema
   contact:
@@ -112,19 +109,15 @@ apis:
   - type: Documentation
     url: https://docs.gitcoin.co/mk_rest_api/
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/bounty.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/bounty.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/grant.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/grant.json
   - type: Examples
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/bounty-example.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/bounty-example.json
   - type: Plans
     url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/plans/plans.yml
   - type: RateLimits
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/rate-limits/rate-limits.yml
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/rate-limits/rate-limits.yml
   - type: GraphQL
     url: graphql/gitcoin-graphql.md
   - type: Documentation
@@ -136,14 +129,11 @@ apis:
   - type: DeveloperPortal
     url: https://developer.passport.xyz
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/passport-stamp.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/passport-stamp.json
   - type: Examples
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/passport-score-example.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/passport-score-example.json
   - type: FinOps
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/finops/finops.yml
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/finops/finops.yml
 - aid: gitcoin:gitcoin-contributors-api
   name: Gitcoin Contributors API
   description: Operations for accessing contributor address data
@@ -157,19 +147,15 @@ apis:
   - type: Documentation
     url: https://docs.gitcoin.co/mk_rest_api/
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/bounty.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/bounty.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/grant.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/grant.json
   - type: Examples
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/bounty-example.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/bounty-example.json
   - type: Plans
     url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/plans/plans.yml
   - type: RateLimits
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/rate-limits/rate-limits.yml
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/rate-limits/rate-limits.yml
   - type: GraphQL
     url: graphql/gitcoin-graphql.md
   - type: Documentation
@@ -181,14 +167,11 @@ apis:
   - type: DeveloperPortal
     url: https://developer.passport.xyz
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/passport-stamp.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/passport-stamp.json
   - type: Examples
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/passport-score-example.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/passport-score-example.json
   - type: FinOps
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/finops/finops.yml
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/finops/finops.yml
 - aid: gitcoin:gitcoin-grants-api
   name: Gitcoin Grants API
   description: Operations related to Gitcoin grants
@@ -202,19 +185,15 @@ apis:
   - type: Documentation
     url: https://docs.gitcoin.co/mk_rest_api/
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/bounty.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/bounty.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/grant.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/grant.json
   - type: Examples
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/bounty-example.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/bounty-example.json
   - type: Plans
     url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/plans/plans.yml
   - type: RateLimits
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/rate-limits/rate-limits.yml
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/rate-limits/rate-limits.yml
   - type: GraphQL
     url: graphql/gitcoin-graphql.md
   - type: Documentation
@@ -226,14 +205,11 @@ apis:
   - type: DeveloperPortal
     url: https://developer.passport.xyz
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/passport-stamp.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/passport-stamp.json
   - type: Examples
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/passport-score-example.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/passport-score-example.json
   - type: FinOps
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/finops/finops.yml
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/finops/finops.yml
 - aid: gitcoin:gitcoin-model-analysis-api
   name: Gitcoin Model Analysis API
   description: The Model Analysis API from Gitcoin — 1 operation(s) for model analysis.
@@ -247,19 +223,15 @@ apis:
   - type: Documentation
     url: https://docs.gitcoin.co/mk_rest_api/
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/bounty.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/bounty.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/grant.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/grant.json
   - type: Examples
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/bounty-example.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/bounty-example.json
   - type: Plans
     url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/plans/plans.yml
   - type: RateLimits
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/rate-limits/rate-limits.yml
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/rate-limits/rate-limits.yml
   - type: GraphQL
     url: graphql/gitcoin-graphql.md
   - type: Documentation
@@ -271,14 +243,11 @@ apis:
   - type: DeveloperPortal
     url: https://developer.passport.xyz
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/passport-stamp.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/passport-stamp.json
   - type: Examples
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/passport-score-example.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/passport-score-example.json
   - type: FinOps
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/finops/finops.yml
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/finops/finops.yml
 - aid: gitcoin:gitcoin-rounds-api
   name: Gitcoin Rounds API
   description: Operations related to Gitcoin Grants funding rounds
@@ -292,19 +261,15 @@ apis:
   - type: Documentation
     url: https://docs.gitcoin.co/mk_rest_api/
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/bounty.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/bounty.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/grant.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/grant.json
   - type: Examples
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/bounty-example.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/bounty-example.json
   - type: Plans
     url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/plans/plans.yml
   - type: RateLimits
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/rate-limits/rate-limits.yml
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/rate-limits/rate-limits.yml
   - type: GraphQL
     url: graphql/gitcoin-graphql.md
   - type: Documentation
@@ -316,16 +281,13 @@ apis:
   - type: DeveloperPortal
     url: https://developer.passport.xyz
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/passport-stamp.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/passport-stamp.json
   - type: Examples
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/passport-score-example.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/passport-score-example.json
   - type: FinOps
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/finops/finops.yml
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/finops/finops.yml
 - aid: gitcoin:gitcoin-stamp-api-api
-  name: Gitcoin Stamp API API
+  name: Gitcoin Stamp API
   description: The Stamp API API from Gitcoin — 4 operation(s) for stamp api.
   humanURL: https://docs.gitcoin.co/mk_rest_api/
   baseURL: https://gitcoin.co/api/v0.1
@@ -337,19 +299,15 @@ apis:
   - type: Documentation
     url: https://docs.gitcoin.co/mk_rest_api/
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/bounty.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/bounty.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/grant.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/grant.json
   - type: Examples
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/bounty-example.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/bounty-example.json
   - type: Plans
     url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/plans/plans.yml
   - type: RateLimits
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/rate-limits/rate-limits.yml
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/rate-limits/rate-limits.yml
   - type: GraphQL
     url: graphql/gitcoin-graphql.md
   - type: Documentation
@@ -361,14 +319,11 @@ apis:
   - type: DeveloperPortal
     url: https://developer.passport.xyz
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/passport-stamp.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/json-schema/passport-stamp.json
   - type: Examples
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/passport-score-example.json
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/examples/passport-score-example.json
   - type: FinOps
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/finops/finops.yml
+    url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/finops/finops.yml
 common:
 - type: IssueTracker
   url: https://github.com/gitcoinco/grants-stack-indexer/issues
