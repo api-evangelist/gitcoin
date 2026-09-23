@@ -1,24 +1,36 @@
 {
   "provider": "gitcoin",
   "sources": [
-    "gitcoin-bounties-api-openapi.yml",
-    "gitcoin-contributors-api-openapi.yml",
-    "gitcoin-grants-api-openapi.yml",
-    "gitcoin-model-analysis-api-openapi.yml",
-    "gitcoin-rounds-api-openapi.yml",
-    "gitcoin-stamp-api-api-openapi.yml"
+    "_original/gitcoin-core-api-openapi.json",
+    "_original/gitcoin-grants-api-openapi.json",
+    "_original/gitcoin-passport-stamps-api-openapi.json"
   ],
   "outputs": [
     "gitcoin-bounties-api-openapi.yml",
-    "gitcoin-contributors-api-openapi.yml",
     "gitcoin-grants-api-openapi.yml",
+    "gitcoin-contributors-api-openapi.yml",
     "gitcoin-model-analysis-api-openapi.yml",
-    "gitcoin-rounds-api-openapi.yml",
     "gitcoin-stamp-api-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (3 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "gitcoin-core-api-openapi.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "gitcoin-grants-api-openapi.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "gitcoin-grants-api-openapi.json: multi-axis tagging (3 tags, 2 first tags, 2.00x duplication over 6 operations) \u2014 split on first tag, 4 operations narrowed",
+    "gitcoin-passport-stamps-api-openapi.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "gitcoin-passport-stamps-api-openapi.json: declared missing tag: Model Analysis",
+    "gitcoin-passport-stamps-api-openapi.json: declared missing tag: Stamp API",
+    "tag 'Grants' spans 2 source specs (gitcoin-core-api-openapi.json, gitcoin-grants-api-openapi.json): per-path servers applied",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "gitcoin-bounties-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gitcoin-contributors-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gitcoin-grants-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gitcoin-model-analysis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gitcoin-stamp-api-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

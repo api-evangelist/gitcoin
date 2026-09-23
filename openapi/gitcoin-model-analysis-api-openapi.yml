@@ -1,18 +1,9 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Gitcoin Core Bounties Model Analysis API
-  version: 0.1.0
-  description: Read-only REST API providing access to Gitcoin bounties and grants data. Supports filtering by experience level, project length, bounty type, owner address, open status, and GitHub URL. Returns JSON-formatted data including funding amounts, contributor addresses, token types, and project metadata.
-  termsOfService: https://gitcoin.co/terms
-  contact:
-    name: Gitcoin Support
-    url: https://support.gitcoin.co/
-  license:
-    name: Gitcoin Terms
-    url: https://gitcoin.co/terms
-servers:
-- url: https://gitcoin.co/api/v0.1
-  description: Gitcoin API v0.1
+  title: Passport Developer Platform Model Analysis API
+  version: 2.0.0
+  description: The Passport Developer Platform's endpoints enable you to retrieve Passport scores, Stamps, analysis, and metadata.
+servers: []
 tags:
 - name: Model Analysis
 paths:
@@ -72,15 +63,6 @@ components:
       - details
       title: PassportAnalysisResponse
       type: object
-    ScoreModel:
-      properties:
-        score:
-          title: Score
-          type: number
-      required:
-      - score
-      title: ScoreModel
-      type: object
     PassportAnalysisDetails:
       properties:
         models:
@@ -136,6 +118,21 @@ components:
       - first_funder_timestamp
       title: DetailedScoreModel
       type: object
-externalDocs:
-  description: Gitcoin API Documentation
-  url: https://docs.gitcoin.co/mk_rest_api/
+    ScoreModel:
+      properties:
+        score:
+          title: Score
+          type: number
+      required:
+      - score
+      title: ScoreModel
+      type: object
+  securitySchemes:
+    function:
+      type: apiKey
+      in: header
+      name: X-API-Key
+    ApiKey:
+      type: apiKey
+      in: header
+      name: X-API-Key

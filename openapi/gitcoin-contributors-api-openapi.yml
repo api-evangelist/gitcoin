@@ -1,18 +1,15 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Gitcoin Core Bounties Contributors API
-  version: 0.1.0
-  description: Read-only REST API providing access to Gitcoin bounties and grants data. Supports filtering by experience level, project length, bounty type, owner address, open status, and GitHub URL. Returns JSON-formatted data including funding amounts, contributor addresses, token types, and project metadata.
+  title: Gitcoin Grants Contributors API
+  version: 1.0.0
+  description: API for querying Gitcoin grants data including grant listings, contributors by round, and addresses that have funded grants. Supports filtering by title, admin address, description, keyword, grant type, and primary key. Also exposes contributor export endpoints for quadratic funding rounds.
   termsOfService: https://gitcoin.co/terms
   contact:
     name: Gitcoin Support
     url: https://support.gitcoin.co/
-  license:
-    name: Gitcoin Terms
-    url: https://gitcoin.co/terms
 servers:
-- url: https://gitcoin.co/api/v0.1
-  description: Gitcoin API v0.1
+- url: https://gitcoin.co
+  description: Gitcoin main server
 tags:
 - name: Contributors
   description: Operations for accessing contributor address data
@@ -150,11 +147,6 @@ paths:
           description: Unauthorized - must be authenticated as a team member
 components:
   schemas:
-    EthereumAddress:
-      type: string
-      pattern: ^0x[a-fA-F0-9]{40}$
-      description: An Ethereum wallet address with leading 0x
-      example: '0x636f3093258412b96c43bef3663f1b853253ec59'
     ContributorInfo:
       type: object
       description: Social information about a grant contributor
@@ -172,6 +164,26 @@ components:
         comment:
           type: string
           description: Comment left by the contributor
+    EthereumAddress:
+      type: string
+      pattern: ^0x[a-fA-F0-9]{40}$
+      description: An Ethereum wallet address with leading 0x
+      example: '0x636f3093258412b96c43bef3663f1b853253ec59'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: query
+      name: _key
+      description: API key obtained from the response body's meta.api_key field after authenticating via the GitHub authentication flow
+    ApiSecretAuth:
+      type: apiKey
+      in: query
+      name: _secret
+      description: API secret used alongside the API key for authentication
+    GitHubAuth:
+      type: openIdConnect
+      openIdConnectUrl: https://github.com/.well-known/openid-configuration
+      description: GitHub OAuth authentication for Gitcoin
 externalDocs:
   description: Gitcoin API Documentation
-  url: https://docs.gitcoin.co/mk_rest_api/
+  url: https://github.com/gitcoinco/web/blob/master/docs/API.md
