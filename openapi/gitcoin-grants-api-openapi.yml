@@ -99,6 +99,11 @@ paths:
       description: Gitcoin main server
 components:
   schemas:
+    EthereumAddress:
+      type: string
+      pattern: ^0x[a-fA-F0-9]{40}$
+      description: An Ethereum wallet address with leading 0x
+      example: '0x636f3093258412b96c43bef3663f1b853253ec59'
     Grant:
       type: object
       description: A Gitcoin grant representing a public goods funding project
@@ -157,11 +162,6 @@ components:
           items:
             $ref: '#/components/schemas/Profile'
           description: Array of team members contributing to this Grant
-    EthereumAddress:
-      type: string
-      pattern: ^0x[a-fA-F0-9]{40}$
-      description: An Ethereum wallet address with leading 0x
-      example: '0x636f3093258412b96c43bef3663f1b853253ec59'
     Profile:
       type: object
       description: Gitcoin user profile

@@ -209,6 +209,54 @@ paths:
       - ApiKey: []
 components:
   schemas:
+    StampDisplayResponseGroup:
+      properties:
+        name:
+          title: Name
+          type: string
+        stamps:
+          items:
+            $ref: '#/components/schemas/StampDisplayResponseStamp'
+          title: Stamps
+          type: array
+      required:
+      - name
+      - stamps
+      title: StampDisplayResponseGroup
+      type: object
+    ErrorMessageResponse:
+      properties:
+        detail:
+          title: Detail
+          type: string
+      required:
+      - detail
+      title: ErrorMessageResponse
+      type: object
+    StampCredentialResponseMetadata:
+      properties:
+        group:
+          title: Group
+          type: string
+        platform:
+          $ref: '#/components/schemas/StampCredentialResponseMetadataForPlatform'
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+        hash:
+          title: Hash
+          type: string
+      required:
+      - group
+      - platform
+      - name
+      - description
+      - hash
+      title: StampCredentialResponseMetadata
+      type: object
     NoScoreResponse:
       properties:
         address:
@@ -246,22 +294,7 @@ components:
       - expiration_date
       title: V2StampScoreResponse
       type: object
-    StampDisplayResponseGroup:
-      properties:
-        name:
-          title: Name
-          type: string
-        stamps:
-          items:
-            $ref: '#/components/schemas/StampDisplayResponseStamp'
-          title: Stamps
-          type: array
-      required:
-      - name
-      - stamps
-      title: StampDisplayResponseGroup
-      type: object
-    StampCredentialResponseMetadataForPlatform:
+    StampDisplayResponse:
       properties:
         id:
           title: Id
@@ -278,13 +311,36 @@ components:
         connectMessage:
           title: Connectmessage
           type: string
+        groups:
+          items:
+            $ref: '#/components/schemas/StampDisplayResponseGroup'
+          title: Groups
+          type: array
       required:
       - id
       - icon
       - name
       - description
       - connectMessage
-      title: StampCredentialResponseMetadataForPlatform
+      - groups
+      title: StampDisplayResponse
+      type: object
+    StampCredentialResponse:
+      properties:
+        version:
+          title: Version
+          type: string
+        credential:
+          title: Credential
+          type: object
+        metadata:
+          anyOf:
+          - $ref: '#/components/schemas/StampCredentialResponseMetadata'
+          - type: 'null'
+      required:
+      - version
+      - credential
+      title: StampCredentialResponse
       type: object
     V2ScoreResponse:
       properties:
@@ -350,23 +406,6 @@ components:
       - stamps
       title: V2ScoreResponse
       type: object
-    StampCredentialResponse:
-      properties:
-        version:
-          title: Version
-          type: string
-        credential:
-          title: Credential
-          type: object
-        metadata:
-          anyOf:
-          - $ref: '#/components/schemas/StampCredentialResponseMetadata'
-          - type: 'null'
-      required:
-      - version
-      - credential
-      title: StampCredentialResponse
-      type: object
     CursorPaginatedStampCredentialResponse:
       properties:
         next:
@@ -389,101 +428,6 @@ components:
       - prev
       - items
       title: CursorPaginatedStampCredentialResponse
-      type: object
-    StampDisplayResponse:
-      properties:
-        id:
-          title: Id
-          type: string
-        icon:
-          title: Icon
-          type: string
-        name:
-          title: Name
-          type: string
-        description:
-          title: Description
-          type: string
-        connectMessage:
-          title: Connectmessage
-          type: string
-        groups:
-          items:
-            $ref: '#/components/schemas/StampDisplayResponseGroup'
-          title: Groups
-          type: array
-      required:
-      - id
-      - icon
-      - name
-      - description
-      - connectMessage
-      - groups
-      title: StampDisplayResponse
-      type: object
-    PointsData:
-      properties:
-        total_points:
-          title: Total Points
-          type: integer
-        is_eligible:
-          title: Is Eligible
-          type: boolean
-        multiplier:
-          title: Multiplier
-          type: integer
-        breakdown:
-          additionalProperties:
-            type: integer
-          title: Breakdown
-          type: object
-      required:
-      - total_points
-      - is_eligible
-      - multiplier
-      - breakdown
-      title: PointsData
-      type: object
-    StampCredentialResponseMetadata:
-      properties:
-        group:
-          title: Group
-          type: string
-        platform:
-          $ref: '#/components/schemas/StampCredentialResponseMetadataForPlatform'
-        name:
-          title: Name
-          type: string
-        description:
-          title: Description
-          type: string
-        hash:
-          title: Hash
-          type: string
-      required:
-      - group
-      - platform
-      - name
-      - description
-      - hash
-      title: StampCredentialResponseMetadata
-      type: object
-    StampDisplayResponseStamp:
-      properties:
-        name:
-          title: Name
-          type: string
-        description:
-          title: Description
-          type: string
-        hash:
-          title: Hash
-          type: string
-      required:
-      - name
-      - description
-      - hash
-      title: StampDisplayResponseStamp
       type: object
     LinkedScoreResponse:
       description: Score data from the canonical wallet in a linked wallet group.
@@ -541,14 +485,70 @@ components:
       - stamps
       title: LinkedScoreResponse
       type: object
-    ErrorMessageResponse:
+    StampCredentialResponseMetadataForPlatform:
       properties:
-        detail:
-          title: Detail
+        id:
+          title: Id
+          type: string
+        icon:
+          title: Icon
+          type: string
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+        connectMessage:
+          title: Connectmessage
           type: string
       required:
-      - detail
-      title: ErrorMessageResponse
+      - id
+      - icon
+      - name
+      - description
+      - connectMessage
+      title: StampCredentialResponseMetadataForPlatform
+      type: object
+    StampDisplayResponseStamp:
+      properties:
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+        hash:
+          title: Hash
+          type: string
+      required:
+      - name
+      - description
+      - hash
+      title: StampDisplayResponseStamp
+      type: object
+    PointsData:
+      properties:
+        total_points:
+          title: Total Points
+          type: integer
+        is_eligible:
+          title: Is Eligible
+          type: boolean
+        multiplier:
+          title: Multiplier
+          type: integer
+        breakdown:
+          additionalProperties:
+            type: integer
+          title: Breakdown
+          type: object
+      required:
+      - total_points
+      - is_eligible
+      - multiplier
+      - breakdown
+      title: PointsData
       type: object
   securitySchemes:
     function:

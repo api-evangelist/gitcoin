@@ -4,17 +4,20 @@ description: Gitcoin is a public goods funding platform that enables communities
   platform provides REST APIs for querying grants, bounties, funding rounds, and project metadata, as
   well as the Gitcoin Passport Stamps API for verifiable credential scoring and identity verification.
 deliveryModel:
-  model: unknown
+  model: saas
+  license_evidence:
+    not_product:
+    - gitcoinco/grants-stack-indexer
   open_source: unknown
   commercial: true
   callable_host: true
-  label: Delivery model not determined — needs a product licence on record
+  label: Hosted service · you call their endpoint
   confidence: low
   source:
   - openapi
   - pricing
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: freemium
@@ -39,7 +42,7 @@ tags:
 - Web3
 - Verifiable Credentials
 - Identity
-- Open-Source
+- Open Source
 tags_raw:
 - Public Goods
 - Grants
@@ -49,6 +52,7 @@ tags_raw:
 - Verifiable Credentials
 - Identity
 - Open Source
+- Open-Source
 created: '2026-06-14'
 modified: '2026-09-16'
 url: https://raw.githubusercontent.com/api-evangelist/gitcoin/refs/heads/main/apis.yml
