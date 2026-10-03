@@ -98,11 +98,6 @@ paths:
                   $ref: '#/components/schemas/Bounty'
 components:
   schemas:
-    EthereumAddress:
-      type: string
-      pattern: ^0x[a-fA-F0-9]{40}$
-      description: An Ethereum wallet address with leading 0x
-      example: '0x636f3093258412b96c43bef3663f1b853253ec59'
     Bounty:
       type: object
       description: A Gitcoin bounty representing a funding opportunity for open source work
@@ -232,6 +227,11 @@ components:
         fulfiller_metadata:
           type: object
           description: githubUsername and notificationEmail for the fulfiller
+    EthereumAddress:
+      type: string
+      pattern: ^0x[a-fA-F0-9]{40}$
+      description: An Ethereum wallet address with leading 0x
+      example: '0x636f3093258412b96c43bef3663f1b853253ec59'
 externalDocs:
   description: Gitcoin API Documentation
   url: https://docs.gitcoin.co/mk_rest_api/

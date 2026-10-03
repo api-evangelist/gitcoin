@@ -51,14 +51,14 @@ paths:
       - function: []
 components:
   schemas:
-    ErrorMessageResponse:
+    ScoreModel:
       properties:
-        detail:
-          title: Detail
-          type: string
+        score:
+          title: Score
+          type: number
       required:
-      - detail
-      title: ErrorMessageResponse
+      - score
+      title: ScoreModel
       type: object
     DetailedScoreModel:
       properties:
@@ -93,14 +93,14 @@ components:
       - first_funder_timestamp
       title: DetailedScoreModel
       type: object
-    ScoreModel:
+    ErrorMessageResponse:
       properties:
-        score:
-          title: Score
-          type: number
+        detail:
+          title: Detail
+          type: string
       required:
-      - score
-      title: ScoreModel
+      - detail
+      title: ErrorMessageResponse
       type: object
     PassportAnalysisResponse:
       properties:
