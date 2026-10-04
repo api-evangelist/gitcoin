@@ -147,6 +147,11 @@ paths:
           description: Unauthorized - must be authenticated as a team member
 components:
   schemas:
+    EthereumAddress:
+      type: string
+      pattern: ^0x[a-fA-F0-9]{40}$
+      description: An Ethereum wallet address with leading 0x
+      example: '0x636f3093258412b96c43bef3663f1b853253ec59'
     ContributorInfo:
       type: object
       description: Social information about a grant contributor
@@ -164,11 +169,6 @@ components:
         comment:
           type: string
           description: Comment left by the contributor
-    EthereumAddress:
-      type: string
-      pattern: ^0x[a-fA-F0-9]{40}$
-      description: An Ethereum wallet address with leading 0x
-      example: '0x636f3093258412b96c43bef3663f1b853253ec59'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

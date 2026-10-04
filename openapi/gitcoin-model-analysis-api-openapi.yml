@@ -60,6 +60,40 @@ components:
       - score
       title: ScoreModel
       type: object
+    PassportAnalysisResponse:
+      properties:
+        address:
+          title: Address
+          type: string
+        details:
+          $ref: '#/components/schemas/PassportAnalysisDetails'
+      required:
+      - address
+      - details
+      title: PassportAnalysisResponse
+      type: object
+    PassportAnalysisDetails:
+      properties:
+        models:
+          additionalProperties:
+            anyOf:
+            - $ref: '#/components/schemas/ScoreModel'
+            - $ref: '#/components/schemas/DetailedScoreModel'
+          title: Models
+          type: object
+      required:
+      - models
+      title: PassportAnalysisDetails
+      type: object
+    ErrorMessageResponse:
+      properties:
+        detail:
+          title: Detail
+          type: string
+      required:
+      - detail
+      title: ErrorMessageResponse
+      type: object
     DetailedScoreModel:
       properties:
         score:
@@ -92,40 +126,6 @@ components:
       - first_funder_amount
       - first_funder_timestamp
       title: DetailedScoreModel
-      type: object
-    ErrorMessageResponse:
-      properties:
-        detail:
-          title: Detail
-          type: string
-      required:
-      - detail
-      title: ErrorMessageResponse
-      type: object
-    PassportAnalysisResponse:
-      properties:
-        address:
-          title: Address
-          type: string
-        details:
-          $ref: '#/components/schemas/PassportAnalysisDetails'
-      required:
-      - address
-      - details
-      title: PassportAnalysisResponse
-      type: object
-    PassportAnalysisDetails:
-      properties:
-        models:
-          additionalProperties:
-            anyOf:
-            - $ref: '#/components/schemas/ScoreModel'
-            - $ref: '#/components/schemas/DetailedScoreModel'
-          title: Models
-          type: object
-      required:
-      - models
-      title: PassportAnalysisDetails
       type: object
   securitySchemes:
     function:

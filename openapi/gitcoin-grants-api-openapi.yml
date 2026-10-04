@@ -99,6 +99,11 @@ paths:
       description: Gitcoin main server
 components:
   schemas:
+    EthereumAddress:
+      type: string
+      pattern: ^0x[a-fA-F0-9]{40}$
+      description: An Ethereum wallet address with leading 0x
+      example: '0x636f3093258412b96c43bef3663f1b853253ec59'
     Grant:
       type: object
       description: A Gitcoin grant representing a public goods funding project
@@ -194,11 +199,6 @@ components:
         organizations:
           type: object
           description: Dictionary containing profiles that this user works with
-    EthereumAddress:
-      type: string
-      pattern: ^0x[a-fA-F0-9]{40}$
-      description: An Ethereum wallet address with leading 0x
-      example: '0x636f3093258412b96c43bef3663f1b853253ec59'
     GrantExport:
       type: object
       description: A grant listing from the grants export endpoint
