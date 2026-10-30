@@ -64,29 +64,171 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Gitcoin is a public goods funding platform that enables communities to fund open-source software, research, and other digital public goods through quadratic funding, direct grants, and bounties.
+Gitcoin is a public goods funding platform that enables communities to fund open-source software, research, and other digital public goods through quadratic funding, direct grants, and bounties. The platform provides REST APIs for querying grants, bounties, funding rounds, and project metadata, as well as the Gitcoin Passport Stamps API for verifiable credential scoring and identity verification.
 
-This repository contains the APIs.json 0.19 provider profile for Gitcoin, cataloging its public REST and GraphQL APIs.
+**Areas:** Public Goods · Grants · Bounties · Quadratic Funding · Web3 · Verifiable Credentials · Identity · Open Source
 
-## APIs Cataloged
+## Gitcoin on APIs.io
 
-- **Gitcoin Core API** — Read-only REST API for bounties and grants at `https://gitcoin.co/api/v0.1`
-- **Gitcoin Grants API** — Grants listing, contributor exports, and round data
-- **Gitcoin Grants Stack Indexer API** — GraphQL API for on-chain Allo Protocol and Grants Stack data at `https://grants-stack-indexer-v2.gitcoin.co/graphql`
-- **Gitcoin Passport Stamps API** — Verifiable credential scoring and stamp verification at `https://api.passport.xyz`
+Everything profiled for Gitcoin is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/gitcoin/](https://apis.io/providers/gitcoin/)** — or go straight to one of the APIs or properties below.
 
-## Resources
+### APIs (6)
 
-- [Gitcoin Website](https://gitcoin.co/)
-- [Developer Documentation](https://docs.gitcoin.co/)
-- [Passport Documentation](https://docs.passport.human.tech/)
-- [GitHub Organization](https://github.com/gitcoinco)
+- [Gitcoin Grants Stack Indexer API](https://apis.io/apis/gitcoin/gitcoin-grants-stack-indexer-api/) — GraphQL API for querying indexed on-chain data from the Gitcoin Grants Stack and Allo Protocol. Provides access to funding rounds, projects, applications,…
+- [Gitcoin Bounties API](https://apis.io/apis/gitcoin/gitcoin-bounties-api/) — Operations related to Gitcoin bounties
+- [Gitcoin Contributors API](https://apis.io/apis/gitcoin/gitcoin-contributors-api/) — Operations for accessing contributor address data
+- [Gitcoin Grants API](https://apis.io/apis/gitcoin/gitcoin-grants-api/) — Operations related to Gitcoin grants
+- [Gitcoin Model Analysis API](https://apis.io/apis/gitcoin/gitcoin-model-analysis-api/) — The Model Analysis API from Gitcoin — 1 operation(s) for model analysis.
+- [Gitcoin Stamp API](https://apis.io/apis/gitcoin/gitcoin-stamp-api-api/) — The Stamp API API from Gitcoin — 4 operation(s) for stamp api.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### GraphQL (1)
+
+GraphQL schemas.
+
+- [Gitcoin GraphQL API](https://apis.io/graphqls/gitcoin/gitcoin-graphql/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Gitcoin Agentic Access](https://apis.io/agentic-access/gitcoin/gitcoin-agentic-access/)
+
+#### JSON Schema (3)
+
+The data models the API reads and writes.
+
+- [Gitcoin Bounty](https://apis.io/schemas/gitcoin/bounty/)
+- [Gitcoin Grant](https://apis.io/schemas/gitcoin/grant/)
+- [Gitcoin Passport Stamp](https://apis.io/schemas/gitcoin/passport-stamp/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [context Context](https://apis.io/jsonld/gitcoin/context/)
+
+#### Examples (2)
+
+Example requests and responses.
+
+- [Bounty Example](https://apis.io/examples/gitcoin/bounty-example/)
+- [Passport Score Example](https://apis.io/examples/gitcoin/passport-score-example/)
+
+#### Collections (12)
+
+Postman and Open Collection request collections.
+
+- [Gitcoin Core Bounties API](https://apis.io/collections/gitcoin/open-gitcoin-bounties-api/)
+- [Gitcoin Core Bounties Contributors API](https://apis.io/collections/gitcoin/open-gitcoin-contributors-api/)
+- [Gitcoin Core Bounties Grants API](https://apis.io/collections/gitcoin/open-gitcoin-grants-api/)
+- [Gitcoin Core Bounties Model Analysis API](https://apis.io/collections/gitcoin/open-gitcoin-model-analysis-api/)
+- [Gitcoin Core Bounties Rounds API](https://apis.io/collections/gitcoin/open-gitcoin-rounds-api/)
+- [Gitcoin Core Bounties Stamp API API](https://apis.io/collections/gitcoin/open-gitcoin-stamp-api-api/)
+- [Gitcoin Core Bounties API](https://apis.io/collections/gitcoin/postman-gitcoin-bounties-api/)
+- [Gitcoin Core Bounties Contributors API](https://apis.io/collections/gitcoin/postman-gitcoin-contributors-api/)
+- [Gitcoin Core Bounties Grants API](https://apis.io/collections/gitcoin/postman-gitcoin-grants-api/)
+- [Gitcoin Core Bounties Model Analysis API](https://apis.io/collections/gitcoin/postman-gitcoin-model-analysis-api/)
+- [Gitcoin Core Bounties Rounds API](https://apis.io/collections/gitcoin/postman-gitcoin-rounds-api/)
+- [Gitcoin Core Bounties Stamp API API](https://apis.io/collections/gitcoin/postman-gitcoin-stamp-api-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Gitcoin — jsonschema rules](https://apis.io/rules/gitcoin/gitcoin-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Gitcoin Authentication](https://apis.io/security/gitcoin/gitcoin-authentication/)
+- [Gitcoin Domain Security](https://apis.io/security/gitcoin/gitcoin-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Plans](https://apis.io/plans/gitcoin/plans/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Rate Limits](https://apis.io/rate-limits/gitcoin/rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Finops](https://apis.io/finops/gitcoin/finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://gitcoin.co/)
+- [Documentation](https://docs.gitcoin.co/)
 - [Support](https://support.gitcoin.co/)
-- [Governance Forum](https://gov.gitcoin.co/)
+- [Blog](https://gitcoin.co/blog)
+- [Terms of service](https://gitcoin.co/terms)
+- [Privacy policy](https://gitcoin.co/privacy)
+- [GitHub](https://github.com/gitcoinco)
 
-## Profile
+## API Evangelist rating
 
-- `apis.yml` — APIs.json 0.19 provider profile
-- `plans/plans.yml` — API access plans and authentication details
-- `rate-limits/rate-limits.yml` — Rate limit tiers and guidance
-- `finops/finops.yml` — Financial operations and cost optimization guidance
+**Kin Score 43.1** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 65.0 |
+| Contract governance | 9.8 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 50.0 |
+| Access clarity | 28.9 |
+
+**Agent readiness 33.8** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | verified |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 24.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/gitcoin/](https://apis.io/providers/gitcoin/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Gitcoin: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/gitcoin/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
